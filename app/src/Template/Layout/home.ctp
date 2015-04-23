@@ -43,7 +43,7 @@ $cakeDescription = 'Buildmax';
 <body>
     <header>
         <div class="header-title">
-            <span><?= $this->fetch('title') ?></span>
+            <span><?php // = $this->fetch('title') ?></span>
         </div>
               <?php // echo $this->element('top') ; ?> 
     </header>

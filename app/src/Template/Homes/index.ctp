@@ -1,9 +1,11 @@
 <div class="container">
 
 	<div class="row clearfix">
-
-		<?php echo $this->element('top') ; ?>
-
+        
+			<?php echo $this->element('top') ; ?>
+       <br>
+       <br>
+       <br>
 		<div class="col-md-12 column">
 			  
 			<blockquote>
@@ -104,4 +106,18 @@
 			</p>
 		</div>
 	</div>
-</div>s
+   <br>
+ 
+ 
+  
+  <div id="footer">
+   <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <p class="text-muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+  </div>
+</div>
+</div>
+</div>
+
+
+ 
