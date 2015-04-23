@@ -16,7 +16,9 @@ class AccountingControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'Accounting' => 'app.accounting'
+        'Accounting' => 'app.accounting',
+        'Tenants' => 'app.tenants',
+        'Payments' => 'app.payments'
     ];
 
     /**

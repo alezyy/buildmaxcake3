@@ -13,7 +13,7 @@
                 <th><?= $this->Paginator->sort('id') ?></th>
                 <th><?= $this->Paginator->sort('property_name') ?></th>
                 <th><?= $this->Paginator->sort('id_unit') ?></th>
-                <th><?= $this->Paginator->sort('type') ?></th>
+                <th><?= $this->Paginator->sort('propertiestypes_specification_id') ?></th>
                 <th><?= $this->Paginator->sort('number_of_units') ?></th>
                 <th><?= $this->Paginator->sort('id_rental_owner') ?></th>
                 <th><?= $this->Paginator->sort('operating_account') ?></th>
@@ -26,7 +26,7 @@
                 <td><?= $this->Number->format($property->id) ?></td>
                 <td><?= h($property->property_name) ?></td>
                 <td><?= h($property->id_unit) ?></td>
-                <td><?= h($property->type) ?></td>
+                    <td><?= $this->Number->format($property->propertiestypes_specification_id) ?></td>
                     <td><?= $this->Number->format($property->number_of_units) ?></td>
                     <td><?= $this->Number->format($property->id_rental_owner) ?></td>
                 <td><?= h($property->operating_account) ?></td>

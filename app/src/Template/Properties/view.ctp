@@ -17,8 +17,6 @@
                     <p><?= h($property->property_name) ?></p>
                     <h6 class="subheader"><?= __('Id Unit') ?></h6>
                     <p><?= h($property->id_unit) ?></p>
-                    <h6 class="subheader"><?= __('Type') ?></h6>
-                    <p><?= h($property->type) ?></p>
                     <h6 class="subheader"><?= __('Operating Account') ?></h6>
                     <p><?= h($property->operating_account) ?></p>
                     <h6 class="subheader"><?= __('Lease Term') ?></h6>
@@ -41,6 +39,8 @@
                 <div class="panel-body">
                     <h6 class="subheader"><?= __('Id') ?></h6>
                     <p><?= $this->Number->format($property->id) ?></p>
+                    <h6 class="subheader"><?= __('Propertiestypes Specification Id') ?></h6>
+                    <p><?= $this->Number->format($property->propertiestypes_specification_id) ?></p>
                     <h6 class="subheader"><?= __('Number Of Units') ?></h6>
                     <p><?= $this->Number->format($property->number_of_units) ?></p>
                     <h6 class="subheader"><?= __('Id Rental Owner') ?></h6>

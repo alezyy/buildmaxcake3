@@ -16,7 +16,10 @@ class ApplicationsLeasesControllerTest extends IntegrationTestCase
      * @var array
      */
     public $fixtures = [
-        'ApplicationsLeases' => 'app.applications_leases'
+        'ApplicationsLeases' => 'app.applications_leases',
+        'Tenants' => 'app.tenants',
+        'Properties' => 'app.properties',
+        'Units' => 'app.units'
     ];
 
     /**

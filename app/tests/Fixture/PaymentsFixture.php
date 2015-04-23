@@ -38,7 +38,7 @@ class PaymentsFixture extends TestFixture
         [
             'id' => 1,
             'id_tenant' => 1,
-            'date' => '2015-04-21'
+            'date' => '2015-04-23'
         ],
     ];
 }

@@ -17,7 +17,7 @@ class Property extends Entity
     protected $_accessible = [
         'property_name' => true,
         'id_unit' => true,
-        'type' => true,
+        'propertiestypes_specification_id' => true,
         'number_of_units' => true,
         'id_rental_owner' => true,
         'operating_account' => true,

@@ -49,7 +49,8 @@ DROP TABLE IF EXISTS `alternateemails`;
 CREATE TABLE `alternateemails` (
   `id` int(200) NOT NULL,
   `tenant_id` int(11) NOT NULL,
-  `alternate_email` varchar(200) NOT NULL
+  `alternate_email` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -110,7 +111,8 @@ DROP TABLE IF EXISTS `cities`;
 CREATE TABLE `cities` (
   `id` int(200) NOT NULL,
   `state_id` int(10) NOT NULL,
-  `city` varchar(200) NOT NULL
+  `city` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,7 +208,8 @@ DROP TABLE IF EXISTS `deposits`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `deposits` (
   `id` int(200) NOT NULL,
-  `security_deposit` decimal(65,0) NOT NULL
+  `security_deposit` decimal(65,0) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -287,7 +290,8 @@ DROP TABLE IF EXISTS `leasestypes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `leasestypes` (
   `id` int(200) NOT NULL,
-  `type_lease` varchar(200) NOT NULL
+  `type_lease` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -571,7 +575,8 @@ DROP TABLE IF EXISTS `propertiestypes_specifications`;
 CREATE TABLE `propertiestypes_specifications` (
   `id` int(10) NOT NULL,
   `propertiestype_id` int(10) NOT NULL,
-  `propertiestypes_specification` varchar(200) NOT NULL
+  `propertiestypes_specification` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -594,7 +599,8 @@ DROP TABLE IF EXISTS `recurringcharges`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `recurringcharges` (
   `id` int(200) NOT NULL,
-  `frequency` varchar(200) NOT NULL
+  `frequency` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -856,4 +862,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-22 22:22:13
+-- Dump completed on 2015-04-22 23:16:33

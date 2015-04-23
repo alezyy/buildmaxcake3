@@ -18,6 +18,9 @@ class AccountingController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Tenants', 'Payments']
+        ];
         $this->set('accounting', $this->paginate($this->Accounting));
         $this->set('_serialize', ['accounting']);
     }
@@ -32,7 +35,7 @@ class AccountingController extends AppController
     public function view($id = null)
     {
         $accounting = $this->Accounting->get($id, [
-            'contain' => []
+            'contain' => ['Tenants', 'Payments']
         ]);
         $this->set('accounting', $accounting);
         $this->set('_serialize', ['accounting']);
@@ -55,7 +58,9 @@ class AccountingController extends AppController
                 $this->Flash->error('The accounting could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('accounting'));
+        $tenants = $this->Accounting->Tenants->find('list', ['limit' => 200]);
+        $payments = $this->Accounting->Payments->find('list', ['limit' => 200]);
+        $this->set(compact('accounting', 'tenants', 'payments'));
         $this->set('_serialize', ['accounting']);
     }
 
@@ -80,7 +85,9 @@ class AccountingController extends AppController
                 $this->Flash->error('The accounting could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('accounting'));
+        $tenants = $this->Accounting->Tenants->find('list', ['limit' => 200]);
+        $payments = $this->Accounting->Payments->find('list', ['limit' => 200]);
+        $this->set(compact('accounting', 'tenants', 'payments'));
         $this->set('_serialize', ['accounting']);
     }
 

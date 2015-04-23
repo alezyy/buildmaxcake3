@@ -19,8 +19,16 @@
                     <p><?= h($tenant->last_name) ?></p>
                     <h6 class="subheader"><?= __('Email') ?></h6>
                     <p><?= h($tenant->email) ?></p>
-                    <h6 class="subheader"><?= __('Phone') ?></h6>
-                    <p><?= h($tenant->phone) ?></p>
+                    <h6 class="subheader"><?= __('Alternateemails Id') ?></h6>
+                    <p><?= h($tenant->alternateemails_id) ?></p>
+                    <h6 class="subheader"><?= __('Cell Phone') ?></h6>
+                    <p><?= h($tenant->cell_phone) ?></p>
+                    <h6 class="subheader"><?= __('Home Phone') ?></h6>
+                    <p><?= h($tenant->home_phone) ?></p>
+                    <h6 class="subheader"><?= __('Work Phone') ?></h6>
+                    <p><?= h($tenant->work_phone) ?></p>
+                    <h6 class="subheader"><?= __('Fax') ?></h6>
+                    <p><?= h($tenant->fax) ?></p>
                     <h6 class="subheader"><?= __('Driver License Number') ?></h6>
                     <p><?= h($tenant->driver_license_number) ?></p>
                     <h6 class="subheader"><?= __('Driver License State') ?></h6>
@@ -35,6 +43,12 @@
                     <p><?= h($tenant->status) ?></p>
                     <h6 class="subheader"><?= __('Emergency Contact') ?></h6>
                     <p><?= h($tenant->emergency_contact) ?></p>
+                    <h6 class="subheader"><?= __('Emergency Contact Email') ?></h6>
+                    <p><?= h($tenant->emergency_contact_email) ?></p>
+                    <h6 class="subheader"><?= __('Emergency Contact Phone') ?></h6>
+                    <p><?= h($tenant->emergency_contact_phone) ?></p>
+                    <h6 class="subheader"><?= __('Relationship To Tenant') ?></h6>
+                    <p><?= h($tenant->relationship_to_tenant) ?></p>
                     <h6 class="subheader"><?= __('Co Signer Details') ?></h6>
                     <p><?= h($tenant->co_signer_details) ?></p>
                     <h6 class="subheader"><?= __('Photo') ?></h6>
@@ -47,6 +61,16 @@
                 <div class="panel-body">
                     <h6 class="subheader"><?= __('Id') ?></h6>
                     <p><?= $this->Number->format($tenant->id) ?></p>
+                    <h6 class="subheader"><?= __('Country Id') ?></h6>
+                    <p><?= $this->Number->format($tenant->country_id) ?></p>
+                    <h6 class="subheader"><?= __('State Id') ?></h6>
+                    <p><?= $this->Number->format($tenant->state_id) ?></p>
+                    <h6 class="subheader"><?= __('City Id') ?></h6>
+                    <p><?= $this->Number->format($tenant->city_id) ?></p>
+                    <h6 class="subheader"><?= __('Zip') ?></h6>
+                    <p><?= $this->Number->format($tenant->zip) ?></p>
+                    <h6 class="subheader"><?= __('Marital Status Id') ?></h6>
+                    <p><?= $this->Number->format($tenant->marital_status_id) ?></p>
                 </div>
             </div>
         </div>
@@ -55,6 +79,16 @@
                 <div class="panel-body">
                     <h6 class="subheader"><?= __('Birth Date') ?></h6>
                     <p><?= h($tenant->birth_date) ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row texts">
+        <div class="columns col-lg-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h6 class="subheader"><?= __('Street') ?></h6>
+                    <?= $this->Text->autoParagraph(h($tenant->street)); ?>
                 </div>
             </div>
         </div>

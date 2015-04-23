@@ -17,7 +17,9 @@ class AccountingTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'Accounting' => 'app.accounting'
+        'Accounting' => 'app.accounting',
+        'Tenants' => 'app.tenants',
+        'Payments' => 'app.payments'
     ];
 
     /**
@@ -60,6 +62,16 @@ class AccountingTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

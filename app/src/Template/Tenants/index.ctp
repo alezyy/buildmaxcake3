@@ -14,9 +14,9 @@
                 <th><?= $this->Paginator->sort('first_name') ?></th>
                 <th><?= $this->Paginator->sort('last_name') ?></th>
                 <th><?= $this->Paginator->sort('email') ?></th>
-                <th><?= $this->Paginator->sort('phone') ?></th>
-                <th><?= $this->Paginator->sort('birth_date') ?></th>
-                <th><?= $this->Paginator->sort('driver_license_number') ?></th>
+                <th><?= $this->Paginator->sort('alternateemails_id') ?></th>
+                <th><?= $this->Paginator->sort('cell_phone') ?></th>
+                <th><?= $this->Paginator->sort('home_phone') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -27,9 +27,9 @@
                 <td><?= h($tenant->first_name) ?></td>
                 <td><?= h($tenant->last_name) ?></td>
                 <td><?= h($tenant->email) ?></td>
-                <td><?= h($tenant->phone) ?></td>
-                <td><?= h($tenant->birth_date) ?></td>
-                <td><?= h($tenant->driver_license_number) ?></td>
+                <td><?= h($tenant->alternateemails_id) ?></td>
+                <td><?= h($tenant->cell_phone) ?></td>
+                <td><?= h($tenant->home_phone) ?></td>
                     <td class="actions">
                     <?= $this->Html->link('<span class="glyphicon glyphicon-zoom-in"></span><span class="sr-only">' . __('View') . '</span>', ['action' => 'view', $tenant->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('View')]) ?>
                     <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span><span class="sr-only">' . __('Edit') . '</span>', ['action' => 'edit', $tenant->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('Edit')]) ?>

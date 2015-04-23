@@ -19,7 +19,7 @@
         <?php
             echo $this->Form->input('property_name');
             echo $this->Form->input('id_unit');
-            echo $this->Form->input('type');
+            echo $this->Form->input('propertiestypes_specification_id');
             echo $this->Form->input('number_of_units');
             echo $this->Form->input('id_rental_owner');
             echo $this->Form->input('operating_account');

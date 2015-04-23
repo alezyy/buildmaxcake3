@@ -47,10 +47,10 @@ class MembershipUsersFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '7d24ec73-d175-4ecd-8928-addbacc88c10',
+            'id' => '30f920ab-8f42-4d12-892f-033f5fb91bb2',
             'passMD5' => 'Lorem ipsum dolor sit amet',
             'email' => 'Lorem ipsum dolor sit amet',
-            'signupDate' => '2015-04-21',
+            'signupDate' => '2015-04-23',
             'id_membership_group' => 1,
             'isBanned' => 1,
             'isApproved' => 1,

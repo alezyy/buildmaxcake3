@@ -51,7 +51,7 @@ class RentalOwnersFixture extends TestFixture
             'first_name' => 'Lorem ipsum dolor sit amet',
             'last_name' => 'Lorem ipsum dolor sit amet',
             'company_name' => 'Lorem ipsum dolor sit amet',
-            'date_of_birth' => '2015-04-21',
+            'date_of_birth' => '2015-04-23',
             'primary_email' => 'Lorem ipsum dolor sit amet',
             'alternate_email' => 'Lorem ipsum dolor sit amet',
             'phone' => 'Lorem ipsum dolor sit amet',

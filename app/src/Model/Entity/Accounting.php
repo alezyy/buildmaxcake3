@@ -17,5 +17,7 @@ class Accounting extends Entity
     protected $_accessible = [
         'tenant_id' => true,
         'payment_id' => true,
+        'tenant' => true,
+        'payment' => true,
     ];
 }

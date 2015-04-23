@@ -56,8 +56,8 @@ class ResidenceAndRentalHistoryFixture extends TestFixture
             'landlord_or_manager_name' => 'Lorem ipsum d',
             'landlord_or_manager_phone' => 'Lorem ipsum d',
             'monthly_rent' => '',
-            'date_of_residency_from' => '2015-04-21',
-            'date_of_residency_to' => '2015-04-21',
+            'date_of_residency_from' => '2015-04-23',
+            'date_of_residency_to' => '2015-04-23',
             'reason_for_leaving' => 'Lorem ipsum dolor sit amet',
             'notes' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.'
         ],

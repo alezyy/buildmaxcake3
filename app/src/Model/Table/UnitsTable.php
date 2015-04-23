@@ -24,6 +24,9 @@ class UnitsTable extends Table
         $this->table('units');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->hasMany('ApplicationsLeases', [
+            'foreignKey' => 'unit_id'
+        ]);
     }
 
     /**

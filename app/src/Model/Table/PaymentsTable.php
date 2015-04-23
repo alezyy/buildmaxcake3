@@ -24,6 +24,12 @@ class PaymentsTable extends Table
         $this->table('payments');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->hasMany('Accounting', [
+            'foreignKey' => 'payment_id'
+        ]);
+        $this->hasMany('Comptable1', [
+            'foreignKey' => 'payment_id'
+        ]);
     }
 
     /**

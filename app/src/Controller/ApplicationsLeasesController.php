@@ -18,6 +18,9 @@ class ApplicationsLeasesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Tenants', 'Properties', 'Units']
+        ];
         $this->set('applicationsLeases', $this->paginate($this->ApplicationsLeases));
         $this->set('_serialize', ['applicationsLeases']);
     }
@@ -32,7 +35,7 @@ class ApplicationsLeasesController extends AppController
     public function view($id = null)
     {
         $applicationsLease = $this->ApplicationsLeases->get($id, [
-            'contain' => []
+            'contain' => ['Tenants', 'Properties', 'Units']
         ]);
         $this->set('applicationsLease', $applicationsLease);
         $this->set('_serialize', ['applicationsLease']);
@@ -55,7 +58,10 @@ class ApplicationsLeasesController extends AppController
                 $this->Flash->error('The applications lease could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('applicationsLease'));
+        $tenants = $this->ApplicationsLeases->Tenants->find('list', ['limit' => 200]);
+        $properties = $this->ApplicationsLeases->Properties->find('list', ['limit' => 200]);
+        $units = $this->ApplicationsLeases->Units->find('list', ['limit' => 200]);
+        $this->set(compact('applicationsLease', 'tenants', 'properties', 'units'));
         $this->set('_serialize', ['applicationsLease']);
     }
 
@@ -80,7 +86,10 @@ class ApplicationsLeasesController extends AppController
                 $this->Flash->error('The applications lease could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('applicationsLease'));
+        $tenants = $this->ApplicationsLeases->Tenants->find('list', ['limit' => 200]);
+        $properties = $this->ApplicationsLeases->Properties->find('list', ['limit' => 200]);
+        $units = $this->ApplicationsLeases->Units->find('list', ['limit' => 200]);
+        $this->set(compact('applicationsLease', 'tenants', 'properties', 'units'));
         $this->set('_serialize', ['applicationsLease']);
     }
 

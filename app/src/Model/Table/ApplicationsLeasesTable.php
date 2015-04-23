@@ -33,6 +33,13 @@ class ApplicationsLeasesTable extends Table
         $this->belongsTo('Units', [
             'foreignKey' => 'unit_id'
         ]);
+        $this->belongsTo('Leasestypes', [
+            'foreignKey' => 'leasestype_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Recurringcharges', [
+            'foreignKey' => 'recurringcharge_id'
+        ]);
     }
 
     /**
@@ -46,16 +53,16 @@ class ApplicationsLeasesTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create')
-            ->requirePresence('type', 'create')
-            ->notEmpty('type')
             ->add('start_date', 'valid', ['rule' => 'date'])
             ->allowEmpty('start_date')
             ->add('end_date', 'valid', ['rule' => 'date'])
             ->allowEmpty('end_date')
-            ->allowEmpty('recurring_charges_frequency')
+            ->add('automatically_end_the_lease', 'valid', ['rule' => 'boolean'])
+            ->requirePresence('automatically_end_the_lease', 'create')
+            ->notEmpty('automatically_end_the_lease')
             ->add('next_due_date', 'valid', ['rule' => 'date'])
             ->allowEmpty('next_due_date')
-            ->allowEmpty('rent')
+            ->allowEmpty('rent_mount')
             ->add('security_deposit', 'valid', ['rule' => 'decimal'])
             ->allowEmpty('security_deposit')
             ->add('security_deposit_date', 'valid', ['rule' => 'date'])
@@ -80,6 +87,8 @@ class ApplicationsLeasesTable extends Table
         $rules->add($rules->existsIn(['tenant_id'], 'Tenants'));
         $rules->add($rules->existsIn(['property_id'], 'Properties'));
         $rules->add($rules->existsIn(['unit_id'], 'Units'));
+        $rules->add($rules->existsIn(['leasestype_id'], 'Leasestypes'));
+        $rules->add($rules->existsIn(['recurringcharge_id'], 'Recurringcharges'));
         return $rules;
     }
 }

@@ -24,6 +24,13 @@ class PropertiesTable extends Table
         $this->table('properties');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->belongsTo('PropertiestypesSpecifications', [
+            'foreignKey' => 'propertiestypes_specification_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->hasMany('ApplicationsLeases', [
+            'foreignKey' => 'property_id'
+        ]);
     }
 
     /**
@@ -40,8 +47,6 @@ class PropertiesTable extends Table
             ->requirePresence('property_name', 'create')
             ->notEmpty('property_name')
             ->allowEmpty('id_unit')
-            ->requirePresence('type', 'create')
-            ->notEmpty('type')
             ->add('number_of_units', 'valid', ['rule' => 'decimal'])
             ->allowEmpty('number_of_units')
             ->add('id_rental_owner', 'valid', ['rule' => 'numeric'])
@@ -64,5 +69,18 @@ class PropertiesTable extends Table
             ->allowEmpty('photo');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['propertiestypes_specification_id'], 'PropertiestypesSpecifications'));
+        return $rules;
     }
 }

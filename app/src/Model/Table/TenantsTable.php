@@ -24,6 +24,38 @@ class TenantsTable extends Table
         $this->table('tenants');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->belongsTo('Alternateemails', [
+            'foreignKey' => 'alternateemails_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Countries', [
+            'foreignKey' => 'country_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('States', [
+            'foreignKey' => 'state_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Cities', [
+            'foreignKey' => 'city_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('MaritalStatuses', [
+            'foreignKey' => 'marital_status_id',
+            'joinType' => 'INNER'
+        ]);
+        $this->hasMany('Accounting', [
+            'foreignKey' => 'tenant_id'
+        ]);
+        $this->hasMany('Alternateemails', [
+            'foreignKey' => 'tenant_id'
+        ]);
+        $this->hasMany('ApplicationsLeases', [
+            'foreignKey' => 'tenant_id'
+        ]);
+        $this->hasMany('Comptable1', [
+            'foreignKey' => 'tenant_id'
+        ]);
     }
 
     /**
@@ -41,7 +73,16 @@ class TenantsTable extends Table
             ->allowEmpty('last_name')
             ->add('email', 'valid', ['rule' => 'email'])
             ->allowEmpty('email')
-            ->allowEmpty('phone')
+            ->allowEmpty('cell_phone')
+            ->requirePresence('home_phone', 'create')
+            ->notEmpty('home_phone')
+            ->allowEmpty('work_phone')
+            ->allowEmpty('fax')
+            ->requirePresence('street', 'create')
+            ->notEmpty('street')
+            ->add('zip', 'valid', ['rule' => 'numeric'])
+            ->requirePresence('zip', 'create')
+            ->notEmpty('zip')
             ->add('birth_date', 'valid', ['rule' => 'date'])
             ->allowEmpty('birth_date')
             ->allowEmpty('driver_license_number')
@@ -52,6 +93,12 @@ class TenantsTable extends Table
             ->requirePresence('status', 'create')
             ->notEmpty('status')
             ->allowEmpty('emergency_contact')
+            ->requirePresence('emergency_contact_email', 'create')
+            ->notEmpty('emergency_contact_email')
+            ->requirePresence('emergency_contact_phone', 'create')
+            ->notEmpty('emergency_contact_phone')
+            ->requirePresence('relationship_to_tenant', 'create')
+            ->notEmpty('relationship_to_tenant')
             ->allowEmpty('co_signer_details')
             ->allowEmpty('notes')
             ->allowEmpty('photo');
@@ -69,6 +116,11 @@ class TenantsTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
+        $rules->add($rules->existsIn(['alternateemails_id'], 'Alternateemails'));
+        $rules->add($rules->existsIn(['country_id'], 'Countries'));
+        $rules->add($rules->existsIn(['state_id'], 'States'));
+        $rules->add($rules->existsIn(['city_id'], 'Cities'));
+        $rules->add($rules->existsIn(['marital_status_id'], 'MaritalStatuses'));
         return $rules;
     }
 }

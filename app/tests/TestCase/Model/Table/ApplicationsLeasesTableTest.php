@@ -17,7 +17,10 @@ class ApplicationsLeasesTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'ApplicationsLeases' => 'app.applications_leases'
+        'ApplicationsLeases' => 'app.applications_leases',
+        'Tenants' => 'app.tenants',
+        'Properties' => 'app.properties',
+        'Units' => 'app.units'
     ];
 
     /**
@@ -60,6 +63,16 @@ class ApplicationsLeasesTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }
