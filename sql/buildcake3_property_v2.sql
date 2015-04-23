@@ -40,6 +40,29 @@ LOCK TABLES `accounting` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `alternateemails`
+--
+
+DROP TABLE IF EXISTS `alternateemails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `alternateemails` (
+  `id` int(200) NOT NULL,
+  `tenant_id` int(11) NOT NULL,
+  `alternate_email` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `alternateemails`
+--
+
+LOCK TABLES `alternateemails` WRITE;
+/*!40000 ALTER TABLE `alternateemails` DISABLE KEYS */;
+/*!40000 ALTER TABLE `alternateemails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `applications_leases`
 --
 
@@ -51,12 +74,13 @@ CREATE TABLE `applications_leases` (
   `tenant_id` int(10) unsigned DEFAULT NULL,
   `property_id` int(10) unsigned DEFAULT NULL,
   `unit_id` int(10) unsigned DEFAULT NULL,
-  `type` varchar(40) NOT NULL DEFAULT 'Fixed',
+  `leasestype_id` int(11) NOT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
-  `recurring_charges_frequency` varchar(40) DEFAULT NULL,
+  `automatically_end_the_lease` tinyint(1) NOT NULL,
+  `recurringcharge_id` int(11) DEFAULT NULL,
   `next_due_date` date DEFAULT NULL,
-  `rent` varchar(40) DEFAULT NULL,
+  `rent_mount` varchar(40) DEFAULT NULL,
   `security_deposit` decimal(15,0) DEFAULT NULL,
   `security_deposit_date` date DEFAULT NULL,
   `status` varchar(40) NOT NULL DEFAULT 'Application',
@@ -72,7 +96,7 @@ CREATE TABLE `applications_leases` (
 
 LOCK TABLES `applications_leases` WRITE;
 /*!40000 ALTER TABLE `applications_leases` DISABLE KEYS */;
-INSERT INTO `applications_leases` VALUES (1,1,1,1,'At-will','2014-04-01','2015-04-01','monthly','2014-05-01','700',1400,'2014-03-03','Application','<br>','1'),(2,3,2,2,'Fixed','2014-05-01','2016-04-30','monthly','2014-06-01','800',1600,'2014-03-01','Lease','<br>','1'),(3,2,2,6,'Fixed','2014-04-01','2016-03-31','monthly','2014-05-01','900',1800,'2014-03-01','Lease','<br>','1');
+INSERT INTO `applications_leases` VALUES (1,1,1,1,0,'2014-04-01','2015-04-01',0,0,'2014-05-01','700',1400,'2014-03-03','Application','<br>','1'),(2,3,2,2,0,'2014-05-01','2016-04-30',0,0,'2014-06-01','800',1600,'2014-03-01','Lease','<br>','1'),(3,2,2,6,0,'2014-04-01','2016-03-31',0,0,'2014-05-01','900',1800,'2014-03-01','Lease','<br>','1');
 /*!40000 ALTER TABLE `applications_leases` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,6 +109,7 @@ DROP TABLE IF EXISTS `cities`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cities` (
   `id` int(200) NOT NULL,
+  `state_id` int(10) NOT NULL,
   `city` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -173,6 +198,28 @@ INSERT INTO `countries` VALUES (1,'AF','Afghanistan',0),(2,'AL','Albania',1),(3,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `deposits`
+--
+
+DROP TABLE IF EXISTS `deposits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deposits` (
+  `id` int(200) NOT NULL,
+  `security_deposit` decimal(65,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `deposits`
+--
+
+LOCK TABLES `deposits` WRITE;
+/*!40000 ALTER TABLE `deposits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deposits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `employment_and_income_history`
 --
 
@@ -204,6 +251,78 @@ LOCK TABLES `employment_and_income_history` WRITE;
 /*!40000 ALTER TABLE `employment_and_income_history` DISABLE KEYS */;
 INSERT INTO `employment_and_income_history` VALUES (1,1,'Anderson Lopez','New Yourk','4989582423','2012-12-01','2014-01-31',5000.00,'database developer','None','None ','<br>');
 /*!40000 ALTER TABLE `employment_and_income_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `groups`
+--
+
+DROP TABLE IF EXISTS `groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `groups`
+--
+
+LOCK TABLES `groups` WRITE;
+/*!40000 ALTER TABLE `groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `leasestypes`
+--
+
+DROP TABLE IF EXISTS `leasestypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `leasestypes` (
+  `id` int(200) NOT NULL,
+  `type_lease` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `leasestypes`
+--
+
+LOCK TABLES `leasestypes` WRITE;
+/*!40000 ALTER TABLE `leasestypes` DISABLE KEYS */;
+INSERT INTO `leasestypes` VALUES (1,'Fixed'),(2,'Fixed w/rollover'),(3,'At-will');
+/*!40000 ALTER TABLE `leasestypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `marital_status`
+--
+
+DROP TABLE IF EXISTS `marital_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `marital_status` (
+  `id` int(10) NOT NULL,
+  `marital_status` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marital_status`
+--
+
+LOCK TABLES `marital_status` WRITE;
+/*!40000 ALTER TABLE `marital_status` DISABLE KEYS */;
+INSERT INTO `marital_status` VALUES (1,'Marie'),(2,'celibataire'),(3,'divorce');
+/*!40000 ALTER TABLE `marital_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -390,7 +509,7 @@ CREATE TABLE `properties` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `property_name` varchar(15) NOT NULL,
   `id_unit` varchar(40) DEFAULT NULL,
-  `type` varchar(40) NOT NULL,
+  `propertiestypes_specification_id` int(10) NOT NULL,
   `number_of_units` decimal(15,0) DEFAULT NULL,
   `id_rental_owner` int(10) unsigned DEFAULT NULL,
   `operating_account` varchar(40) NOT NULL,
@@ -414,8 +533,79 @@ CREATE TABLE `properties` (
 
 LOCK TABLES `properties` WRITE;
 /*!40000 ALTER TABLE `properties` DISABLE KEYS */;
-INSERT INTO `properties` VALUES (1,'Appartment','218 W','Residential',1,1,'Operating bank account',1000,700.00,1400.00,NULL,'United States','795 E DRAGRAM','TUCSON','AZ',85705,'57549900_1394029329.jpg'),(2,'House','592','Residential',1,4,'Operating bank account',2000,1000.00,2500.00,NULL,'United States','421 E DRACHMAN','TUCSON','AZ',7598,'51585300_1394030122.jpg'),(3,'House','123 ','Residential',4,3,'Security deposit bank account',16000,1000.00,2000.00,NULL,'United States','FLOYLSTONE AVE','SEATTLE ','WA',42525,'36299700_1394029775.jpg');
+INSERT INTO `properties` VALUES (1,'Appartment','218 W',0,1,1,'Operating bank account',1000,700.00,1400.00,NULL,'United States','795 E DRAGRAM','TUCSON','AZ',85705,'57549900_1394029329.jpg'),(2,'House','592',0,1,4,'Operating bank account',2000,1000.00,2500.00,NULL,'United States','421 E DRACHMAN','TUCSON','AZ',7598,'51585300_1394030122.jpg'),(3,'House','123 ',0,4,3,'Security deposit bank account',16000,1000.00,2000.00,NULL,'United States','FLOYLSTONE AVE','SEATTLE ','WA',42525,'36299700_1394029775.jpg');
 /*!40000 ALTER TABLE `properties` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertiestypes`
+--
+
+DROP TABLE IF EXISTS `propertiestypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertiestypes` (
+  `id` varchar(200) NOT NULL,
+  `type` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertiestypes`
+--
+
+LOCK TABLES `propertiestypes` WRITE;
+/*!40000 ALTER TABLE `propertiestypes` DISABLE KEYS */;
+INSERT INTO `propertiestypes` VALUES ('1','Industrial'),('2','Commercial'),('3','Residential');
+/*!40000 ALTER TABLE `propertiestypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `propertiestypes_specifications`
+--
+
+DROP TABLE IF EXISTS `propertiestypes_specifications`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `propertiestypes_specifications` (
+  `id` int(10) NOT NULL,
+  `propertiestype_id` int(10) NOT NULL,
+  `propertiestypes_specification` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `propertiestypes_specifications`
+--
+
+LOCK TABLES `propertiestypes_specifications` WRITE;
+/*!40000 ALTER TABLE `propertiestypes_specifications` DISABLE KEYS */;
+INSERT INTO `propertiestypes_specifications` VALUES (1,3,'apartment'),(2,2,'Entrepot'),(3,1,'laboratoire');
+/*!40000 ALTER TABLE `propertiestypes_specifications` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `recurringcharges`
+--
+
+DROP TABLE IF EXISTS `recurringcharges`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `recurringcharges` (
+  `id` int(200) NOT NULL,
+  `frequency` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `recurringcharges`
+--
+
+LOCK TABLES `recurringcharges` WRITE;
+/*!40000 ALTER TABLE `recurringcharges` DISABLE KEYS */;
+INSERT INTO `recurringcharges` VALUES (1,'Monthly'),(2,'Daily'),(3,'Weekly'),(4,'Every two weeks'),(5,'Every two months'),(6,'Quartely'),(7,'Every six months'),(8,'Yearly'),(9,'One time');
+/*!40000 ALTER TABLE `recurringcharges` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -515,6 +705,31 @@ LOCK TABLES `residence_and_rental_history` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `states`
+--
+
+DROP TABLE IF EXISTS `states`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `states` (
+  `id` int(200) NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `state` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `states`
+--
+
+LOCK TABLES `states` WRITE;
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+INSERT INTO `states` VALUES (1,38,'Quebec'),(2,38,'Toronto');
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tenants`
 --
 
@@ -526,8 +741,18 @@ CREATE TABLE `tenants` (
   `first_name` varchar(15) DEFAULT NULL,
   `last_name` varchar(15) DEFAULT NULL,
   `email` varchar(80) DEFAULT NULL,
-  `phone` varchar(15) DEFAULT NULL,
+  `alternateemails_id` varchar(200) NOT NULL,
+  `cell_phone` varchar(15) DEFAULT NULL,
+  `home_phone` varchar(200) NOT NULL,
+  `work_phone` varchar(200) DEFAULT NULL,
+  `fax` varchar(200) DEFAULT NULL,
+  `country_id` int(200) NOT NULL,
+  `state_id` int(200) NOT NULL,
+  `street` text NOT NULL,
+  `city_id` int(10) NOT NULL,
+  `zip` int(11) NOT NULL,
   `birth_date` date DEFAULT NULL,
+  `marital_status_id` int(11) NOT NULL,
   `driver_license_number` varchar(15) DEFAULT NULL,
   `driver_license_state` varchar(15) DEFAULT NULL,
   `total_number_of_occupants` varchar(15) DEFAULT NULL,
@@ -535,6 +760,9 @@ CREATE TABLE `tenants` (
   `requested_lease_term` varchar(15) DEFAULT NULL,
   `status` varchar(40) NOT NULL DEFAULT 'Applicant',
   `emergency_contact` varchar(100) DEFAULT NULL,
+  `emergency_contact_email` varchar(200) NOT NULL,
+  `emergency_contact_phone` varchar(200) NOT NULL,
+  `relationship_to_tenant` varchar(200) NOT NULL,
   `co_signer_details` varchar(100) DEFAULT NULL,
   `notes` text,
   `photo` varchar(40) DEFAULT NULL,
@@ -549,7 +777,7 @@ CREATE TABLE `tenants` (
 
 LOCK TABLES `tenants` WRITE;
 /*!40000 ALTER TABLE `tenants` DISABLE KEYS */;
-INSERT INTO `tenants` VALUES (1,'Nancy','Walker','nancywalker@she.com','9876543210','1973-03-01','34267789','CA','5','1',NULL,'Applicant','Name: Carola Paul\r\ne-mail: carolapaul@she.com\r\nPhone:1348973884\r\nAddress: POB 65502\r\nTUCSON AZ 85728','Name: John Steve \r\ne-mail: johnsteve@he.com\r\nPhone:48245543\r\nAddress: 300 BOYLSTON AVE E\r\nSEATTLE WA','<br>','87076300_1394033914.jpg'),(2,'Olivia','Medison','oliviamedison@she.com','8998435325','1980-01-23','76895432','GU','3','2',NULL,'Applicant','Name: Nim Jackson\r\nemail: nimjackson@she.com','Name: Nim Jackson\r\nemail: nimjackson@she.com','<br>',NULL),(3,'Elisabeth','Ban','elisabethban@live.com','2098435890','1985-07-20','76589965','GU','6','2',NULL,'Tenant',NULL,NULL,'<br>',NULL);
+INSERT INTO `tenants` VALUES (1,'Nancy','Walker','nancywalker@she.com','','9876543210','','0','0',0,0,'',0,0,'1973-03-01',0,'34267789','CA','5','1',NULL,'Applicant','Name: Carola Paul\r\ne-mail: carolapaul@she.com\r\nPhone:1348973884\r\nAddress: POB 65502\r\nTUCSON AZ 85728','','','','Name: John Steve \r\ne-mail: johnsteve@he.com\r\nPhone:48245543\r\nAddress: 300 BOYLSTON AVE E\r\nSEATTLE WA','<br>','87076300_1394033914.jpg'),(2,'Olivia','Medison','oliviamedison@she.com','','8998435325','','0','0',0,0,'',0,0,'1980-01-23',0,'76895432','GU','3','2',NULL,'Applicant','Name: Nim Jackson\r\nemail: nimjackson@she.com','','','','Name: Nim Jackson\r\nemail: nimjackson@she.com','<br>',NULL),(3,'Elisabeth','Ban','elisabethban@live.com','','2098435890','','0','0',0,0,'',0,0,'1985-07-20',0,'76589965','GU','6','2',NULL,'Tenant',NULL,'','','',NULL,'<br>',NULL);
 /*!40000 ALTER TABLE `tenants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -590,6 +818,34 @@ LOCK TABLES `units` WRITE;
 /*!40000 ALTER TABLE `units` DISABLE KEYS */;
 /*!40000 ALTER TABLE `units` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `group_id` int(11) NOT NULL,
+  `role` varchar(20) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -600,4 +856,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-22 20:45:40
+-- Dump completed on 2015-04-22 22:22:13
