@@ -27,6 +27,13 @@ use Cake\Controller\Controller;
 class AppController extends Controller
 {
 
+    public $theme = 'Bootstrap';
+    public $helpers = [
+    'Less.Less', // required for parsing less files
+    'Bootstrap.Form'
+            ];
+
+
     /**
      * Initialization hook method.
      *
@@ -38,5 +45,6 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+        $this->loadComponent('Bootstrap.Flash');
     }
 }
