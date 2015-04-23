@@ -34,7 +34,7 @@ class AppController extends Controller
             ];
 
   //  public $components = array('Auth', 'Session', 'Decorator.Decorator');
-  //    public $components = array('Auth', 'Session');
+      public $components = array('Auth', 'Session');
 
 
     /**

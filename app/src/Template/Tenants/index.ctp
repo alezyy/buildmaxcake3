@@ -1,4 +1,10 @@
+ <?php echo $this->element('top') ; ?>
+
+<br>  
+<br>
+
 <div class="actions columns col-lg-2 col-md-3">
+
     <h3><?= __('Actions') ?></h3>
     <ul class="nav nav-stacked nav-pills">
         <li><?= $this->Html->link(__('New Tenant'), ['action' => 'add']) ?></li>
