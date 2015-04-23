@@ -1,0 +1,1 @@
+$('#closeModal').click(function(){location.reload();});	

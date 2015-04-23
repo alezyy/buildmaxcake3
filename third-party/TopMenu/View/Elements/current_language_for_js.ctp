@@ -1,0 +1,1 @@
+<input type="hidden" id="user_i18n" value="<?php echo $langSuffix. '_' . Configure::read('I18N.COUNTRY_CODE_2') ?>"/>

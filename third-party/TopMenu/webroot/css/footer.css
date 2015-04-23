@@ -1,0 +1,45 @@
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-top: 4px #ce362f solid;
+	background: #333;
+}
+.footer .container{
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.footer ul.list-group{
+	margin-top: 20px;
+}
+.footer ul.list-group, .footer ul li.list-group-item{
+	background: #333;
+	color: white;
+	margin-bottom: 0;
+}
+.footer ul li.list-group-item a{
+	color: white;
+}
+.footer ul li.list-group-item a:hover{
+	color: white;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.footer {
+		position: relative;
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+	.footer {
+		position: relative;
+	}
+}

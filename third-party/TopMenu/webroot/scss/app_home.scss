@@ -1,0 +1,504 @@
+// bootswatch theme
+@import "../bower_components/bootswatch-scss/lumen/variables";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "../bower_components/bootswatch-scss/lumen/bootswatch";
+
+// plugins styles
+@import "../bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css";
+@import "../bower_components/bootstrap-star-rating/css/star-rating.css";
+
+// icon fonts styles
+@import "../bower_components/font-awesome/scss/font-awesome";
+@import "../bower_components/ionicons/scss/ionicons";
+
+// page components styles
+@import "sidebar";
+@import "spinner";
+@import "password-meter";
+@import "footer";
+
+
+// app styles
+
+$primary-color-app: #ce362f;
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+  label {
+    font-size: 12px;
+  }
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 150px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.hide{
+  display: none;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.footer ul.menu, .footer{
+  background: #ce362f;
+}
+.footer.mobile-footer p{
+  margin-bottom: 0;
+  color: white;
+  padding: 10px 7px;
+}
+
+ul.menu{
+  margin-bottom: 0;
+
+}
+
+ul.menu li a{
+  color: white;
+  padding: 10px 0px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+ul.menu li:hover a{
+  color: white;
+  text-decoration: none;
+}
+
+ul.menu li:hover{
+  background: #C62828;
+  transition: background 300ms ease-in;
+}
+
+ul.menu li.active{
+  background: #C62828;
+  transition: background 300ms ease-out;
+}
+
+ul.menu li{
+  padding: 20px 10px;
+  vertical-align: middle;
+  transition: background 300ms ease-out;
+}
+
+ul#cuisines li a, ul#secteurs li a{
+  color: #e7e7e7;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer .list-group-item{
+  padding: 3px 5px;
+}
+
+footer .list-group{
+  margin: 10px 0px;
+}
+
+
+ul#cuisines li a:hover, ul#secteurs li a:hover, ul#cuisines li:hover a, ul#secteurs li:hover a{
+  color: white;
+  text-decoration: underline;
+}
+
+ul#cuisines, ul#secteurs{
+  padding: 10px 0px;
+  margin: 0;
+  background: #C62828; 
+}
+
+ul#cuisines li, ul#secteurs li{
+  border: none;
+  background: #C62828;
+}
+
+form.form-signin{
+  padding: 15px;
+  width: 300px;
+}
+
+.btn-primary{
+  border: none;
+  background: #ce362f;
+  border-bottom: 4px #C62828 solid;
+  transition: background 500ms ease-out;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus{
+  background: #C62828;
+  border-bottom: 4px #ce362f solid;
+  transition: background 500ms ease-out;
+}
+
+#navbar{
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggle:hover {
+  background: transparent !important;
+}
+.navbar-toggle .icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+}
+.navbar-toggle .top-bar {
+  transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+  transform-origin: 10% 10%;
+    -webkit-transform-origin: 10% 10%;
+    -moz-transform-origin: 10% 10%;
+}
+.navbar-toggle .middle-bar {
+  opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+}
+.navbar-toggle .bottom-bar {
+  transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+    -webkit-transform-origin: 10% 90%;
+    -moz-transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed .top-bar {
+  transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+}
+.navbar-toggle.collapsed .middle-bar {
+  opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+}
+.navbar-toggle.collapsed .bottom-bar {
+  transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+}
+
+.navbar-custom {
+    background-color:transparent;
+    color:#424242;
+    border-radius:0;
+    transition: color 300ms ease-out;
+}
+.navbar-second {
+  width: 300px;
+}
+
+.navbar-toggle{
+  margin-top: 45px;
+}
+
+.navbar-toggle .icon-bar{
+    background: #ce362f;
+    width: 38px;
+    height: 6px;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#424242;
+    font-weight: bold;
+    transition: color 300ms ease-out;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus, .nav>li>a:focus, .nav>li>a:hover{
+    color: #ce362f;
+    background-color:transparent;
+    transition: color 300ms ease-out;
+}
+.navbar-custom .navbar-brand {
+    color:#424242;
+    transition: color 300ms ease-out;
+}
+
+.logo{
+  margin: 30px;
+  margin-bottom: 0;
+}
+
+.logo h4{
+  font-weight: bold;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.logo div.pull-right{
+  padding: 30px;
+}
+
+#bottom-nav{
+  background: #ce362f;
+  color: white;
+}
+
+#bottom-nav li{
+  border-right: 3px dotted;
+  color: white;
+}
+
+#bottom-nav li a{
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  height: 69px;
+}
+
+#bottom-nav li:hover{
+  transition: background 500ms ease-out;
+}
+
+#bottom-nav li:hover{
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #C62828;
+  color: white;
+  height: 69px;
+  transition: background 500ms ease-out;
+}
+
+#form{
+  padding: 45px;
+  border-radius: 10px;
+  
+  /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(255, 255, 255);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(255, 255, 255, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#FFFFFF);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFF, endColorstr=#FFFFFF)";
+}
+
+#steps{
+  padding: 45px;
+  padding-top: 0;
+  border-radius: 10px;
+}
+
+#steps p{
+  border-radius: 30px;
+  font-weight: bold;
+
+}
+
+#steps a {
+color: inherit;
+text-decoration: inherit;
+}
+
+#form input{
+  height: 60px;
+  border-radius: 7px 0px 0px 7px;
+  font-size: 20px;
+}
+
+#form h2, #form h4{
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 130%;
+
+}
+
+.btn-primary{
+  background: #ce362f;
+  transition: background 300ms ease-out;
+  border: none;
+  border-bottom: 4px #C62828 solid;
+}
+
+.btn-primary:hover{
+  background: #C62828;
+  transition: background 300ms ease-out;
+  border-bottom: 4px #ce362f solid;
+}
+
+.text-red{
+  color: #ce362f;
+}
+
+.no-padding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+.container-100 {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#delivery label{
+  color: #C62828;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+#delivery input[type=submit]{
+  margin-top: 20px;
+  border-radius: 0px 7px 7px 0px;
+}
+#delivery button.geolocation{
+  height: 60px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  font-size: 25px;
+  color: #ADADAD;
+  transition: all 0.1s ease-in;
+}
+#delivery button.geolocation:hover{
+  color: #454545;
+}
+#delivery .input-group-btn{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 20px;
+}
+
+#please_wait_spinner{
+  z-index: 2000; 
+  width: 100%; 
+  height: 100%; 
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+#please_wait_spinner img{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+form.register{
+    padding: 30px;
+}
+
+
+.shake-me {
+    display:block;
+    position:relative;
+}
+.shake-me:hover {
+    transition: all 0.2s ease-in;
+    -webkit-animation-name: linkQuake;
+        -moz-animation-name: linkQuake;
+            animation-name: linkQuake;
+    -webkit-animation-duration: 2s;
+        -moz-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-transform-origin:50% 50%;
+        -moz-transform-origin:50% 50%;
+            transform-origin:50% 50%;
+    -webkit-animation-timing-function: linear;
+        -moz-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-fill-mode:forwards;
+        -moz-animation-fill-mode:forwards;
+            -animation-fill-mode:forwards;
+}
+
+@keyframes linkQuake {
+    0%   { 
+        transform: translate(2px, 1px)   rotate(0deg); 
+    }
+    10%  { 
+        transform: translate(-1px, -2px) rotate(-1deg); 
+    }
+    20%  { 
+        transform: translate(-3px, 0px)  rotate(1deg); 
+    }
+    80%  { 
+        transform: translate(-1px, -2px) rotate(1deg); 
+    }
+    90%  { 
+        transform: translate(2px, -1px)   rotate(0deg); 
+    }
+    100% { 
+        transform: translate(1px, -2px)  rotate(-1deg); 
+    }
+}
+
+@-moz-keyframes linkQuake { /* Firefox */
+    0%   { 
+        -moz-transform: translate(2px, 1px)   rotate(0deg); 
+    }
+    10%  { 
+        -moz-transform: translate(-1px, -2px) rotate(-1deg); 
+    }
+    20%  { 
+        -moz-transform: translate(-3px, 0px)  rotate(1deg); 
+    }
+    80%  { 
+        -moz-transform: translate(-1px, -2px) rotate(1deg); 
+    }
+    90%  { 
+        -moz-transform: translate(2px, -1px)   rotate(0deg); 
+    }
+    100% { 
+        -moz-transform: translate(1px, -2px)  rotate(-1deg); 
+    }
+}
+
+@-webkit-keyframes linkQuake { /* Safari and Chrome */
+    0%   { 
+        -webkit-transform: translate(2px, 1px)   rotate(0deg); 
+    }
+    10%  { 
+        -webkit-transform: translate(-1px, -2px) rotate(-1deg); 
+    }
+    20%  { 
+        -webkit-transform: translate(-3px, 0px)  rotate(1deg); 
+    }
+    80%  { 
+        -webkit-transform: translate(-1px, -2px) rotate(1deg); 
+    }
+    90%  { 
+        -webkit-transform: translate(2px, -1px)   rotate(0deg); 
+    }
+    100% { 
+        -webkit-transform: translate(1px, -2px)  rotate(-1deg); 
+    }
+}
+
+
+

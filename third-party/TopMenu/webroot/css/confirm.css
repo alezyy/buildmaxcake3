@@ -1,0 +1,61 @@
+
+	div.trait{text-align: center; position: relative;}
+	div.trait img{
+		width: 15%;
+		position: absolute;
+		vertical-align: middle;
+		padding-top: 5px;
+	}
+	div.trait img.trait-left{left: 10px;}
+	div.trait img.trait-right{right: 10px}
+
+	div.four-gray-border{
+		width: 85%;
+		margin: auto;
+		border: solid 1px #CCCCCC;
+		color: #B1B1B1;
+		text-align: center;
+		font-style: italic;
+		padding: 2%;
+		margin: 3% auto 3% auto;
+	}
+
+	div.centered-row{
+		text-align: center;
+		font-style: italic;
+		margin-top: 10px; 
+		margin-bottom: 10px; 
+	}
+
+	div.button-row{
+		text-align: center;
+		margin: auto;
+		padding: 2% 0% 2% 0%;
+	}
+
+	div.button-row a.btn{
+		width: 85%;
+	}
+
+	div.form-row form{
+		margin: 0 auto 0 auto;
+		width: 100%;
+		position: relative;
+
+	}
+
+	div.form-row input{
+		width: 97%;
+		padding-left: 1%;
+		padding-right: 1%;
+		margin-bottom: 10px;		
+		border: solid 1px #CCCCCC;
+		text-align: center;
+	}
+
+
+	div.form-row a[role=button]{
+		width: 100%;
+		padding-left:  0;
+		padding-right: 0;
+	}

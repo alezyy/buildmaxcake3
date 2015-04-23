@@ -1,0 +1,53 @@
+* {
+    font-family: Oxygen, sans-serif;
+}
+body{
+    background-color: rgb(247, 236, 206);
+}
+
+.header{
+    background: url(header-bg.png) repeat-x bottom left #E13B01;
+}
+
+#header .left{
+    width: inherit;
+    font-size: 39px;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+#header .right {
+    width: auto;
+    padding-top: 15px;
+}
+                
+#header .right a{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 24px;
+    padding: 30px 0 0 0;
+    color: #FFF!important;
+    text-decoration: none;
+}
+
+
+#header .left img{
+    width: 137px;
+}
+
+#header_wrapper {
+    background: url(header-bg.png) repeat-x bottom left #E13B01;
+    margin: 0 auto;
+    padding: 0px;
+    height: 70px;
+}
+
+h1#restoName {
+    font-size: 39px;
+    color: #FFFFFF;
+    white-space: nowrap;
+    padding-left: 10px
+}
+
+div#content_wrapper{
+    background-color: rgb(247, 236, 206);
+}

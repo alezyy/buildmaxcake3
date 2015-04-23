@@ -1,0 +1,22 @@
+#search.affix {
+    position: fixed; 
+    top: 45px;
+    z-index: 99;
+}
+#search.affix-top {
+    position: relative;
+}
+#search.affix-bottom {
+    position: absolute;
+    bottom: 171px;
+}
+.search_wrapper {
+    float:left;
+    min-width: 266px;
+}
+.other_pages_left_tab {
+    background: #FFF;
+}
+.accordion-inner {
+    padding-bottom: 50px;
+}

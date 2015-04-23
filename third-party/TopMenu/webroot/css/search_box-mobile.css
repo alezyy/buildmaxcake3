@@ -1,0 +1,29 @@
+#search.affix {
+    position: fixed; 
+    top: 45px;
+    z-index: 99;
+}
+#search.affix-top {
+    position: relative;
+}
+#search.affix-bottom {
+    position: absolute;
+    bottom: 171px;
+}
+.search_wrapper {
+    width: 80%;	
+}
+.other_pages_left_tab {
+    background: #FFF;
+}
+.accordion-inner {
+    padding-bottom: 10px;
+}
+
+.other_pages_right_tab{
+	width: 100%;
+}
+
+.other_pages_left{
+	width: 100%;
+}

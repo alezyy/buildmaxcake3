@@ -1,0 +1,44 @@
+$background-footer: #333;
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	border-top: 4px $brand-primary solid;
+	background: $background-footer;
+	.container{
+		margin-top: 15px;
+		margin-bottom: 20px;
+	}
+	ul.list-group{
+		margin-top: 20px;
+		background: $background-footer;
+		color: white;
+		margin-bottom: 0;
+	}
+	ul li.list-group-item{
+		background: $background-footer;
+		color: white;
+		margin-bottom: 0;
+		a{
+			color: white;
+			&:hover{
+				color: white;
+			}
+		}
+	}
+}
+ 
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.footer {
+		position: relative;
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+	.footer {
+		position: relative;
+	}
+}
