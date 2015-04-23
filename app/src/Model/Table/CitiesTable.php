@@ -24,6 +24,10 @@ class CitiesTable extends Table
         $this->table('cities');
         $this->displayField('id');
         $this->primaryKey('id');
+        $this->belongsTo('Countries', [
+            'foreignKey' => 'country_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsTo('States', [
             'foreignKey' => 'state_id',
             'joinType' => 'INNER'
@@ -59,6 +63,7 @@ class CitiesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->existsIn(['country_id'], 'Countries'));
         $rules->add($rules->existsIn(['state_id'], 'States'));
         return $rules;
     }

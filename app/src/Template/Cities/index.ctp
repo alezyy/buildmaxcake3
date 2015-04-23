@@ -3,6 +3,8 @@
     <ul class="nav nav-stacked nav-pills">
         <li><?= $this->Html->link(__('New City'), ['action' => 'add']) ?></li>
         <li class="active disabled"><?= $this->Html->link(__('List Cities'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Countries'), ['controller' => 'Countries', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Country'), ['controller' => 'Countries', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List States'), ['controller' => 'States', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New State'), ['controller' => 'States', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Tenants'), ['controller' => 'Tenants', 'action' => 'index']) ?> </li>
@@ -15,6 +17,7 @@
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
+                <th><?= $this->Paginator->sort('country_id') ?></th>
                 <th><?= $this->Paginator->sort('state_id') ?></th>
                 <th><?= $this->Paginator->sort('city') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -25,6 +28,9 @@
             <tr>
                 <td><?= $this->Number->format($city->id) ?></td>
                 <td>
+                    <?= $city->has('country') ? $this->Html->link($city->country->name, ['controller' => 'Countries', 'action' => 'view', $city->country->id]) : '' ?>
+                </td>
+            <td>
                     <?= $city->has('state') ? $this->Html->link($city->state->id, ['controller' => 'States', 'action' => 'view', $city->state->id]) : '' ?>
                 </td>
             <td><?= h($city->city) ?></td>

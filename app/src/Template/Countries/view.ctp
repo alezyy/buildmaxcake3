@@ -5,6 +5,8 @@
         <li><?= $this->Form->postLink(__('Delete Country'), ['action' => 'delete', $country->id], ['confirm' => __('Are you sure you want to delete # {0}?', $country->id), 'class' => 'btn-danger']) ?> </li>
         <li><?= $this->Html->link(__('List Countries'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Country'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Cities'), ['controller' => 'Cities', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New City'), ['controller' => 'Cities', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List States'), ['controller' => 'States', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New State'), ['controller' => 'States', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Tenants'), ['controller' => 'Tenants', 'action' => 'index']) ?> </li>
@@ -40,6 +42,37 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="related row">
+    <div class="column col-lg-12">
+    <h4 class="subheader"><?= __('Related Cities') ?></h4>
+    <?php if (!empty($country->cities)): ?>
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th><?= __('Id') ?></th>
+                <th><?= __('Country Id') ?></th>
+                <th><?= __('State Id') ?></th>
+                <th><?= __('City') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($country->cities as $cities): ?>
+            <tr>
+                <td><?= h($cities->id) ?></td>
+                <td><?= h($cities->country_id) ?></td>
+                <td><?= h($cities->state_id) ?></td>
+                <td><?= h($cities->city) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link('<span class="glyphicon glyphicon-zoom-in"></span><span class="sr-only">' . __('View') . '</span>', ['controller' => 'Cities', 'action' => 'view', $cities->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('View')]) ?>
+                    <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span><span class="sr-only">' . __('Edit') . '</span>', ['controller' => 'Cities', 'action' => 'edit', $cities->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('Edit')]) ?>
+                    <?= $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span><span class="sr-only">' . __('Delete') . '</span>', ['controller' => 'Cities', 'action' => 'delete', $cities->id], ['confirm' => __('Are you sure you want to delete # {0}?', $cities->id), 'escape' => false, 'class' => 'btn btn-xs btn-danger', 'title' => __('Delete')]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+    <?php endif; ?>
     </div>
 </div>
 <div class="related row">
@@ -93,7 +126,6 @@
                 <th><?= __('City Id') ?></th>
                 <th><?= __('Zip') ?></th>
                 <th><?= __('Birth Date') ?></th>
-                <th><?= __('Marital Status Id') ?></th>
                 <th><?= __('Driver License Number') ?></th>
                 <th><?= __('Driver License State') ?></th>
                 <th><?= __('Total Number Of Occupants') ?></th>
@@ -126,7 +158,6 @@
                 <td><?= h($tenants->city_id) ?></td>
                 <td><?= h($tenants->zip) ?></td>
                 <td><?= h($tenants->birth_date) ?></td>
-                <td><?= h($tenants->marital_status_id) ?></td>
                 <td><?= h($tenants->driver_license_number) ?></td>
                 <td><?= h($tenants->driver_license_state) ?></td>
                 <td><?= h($tenants->total_number_of_occupants) ?></td>

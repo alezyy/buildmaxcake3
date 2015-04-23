@@ -3,6 +3,8 @@
     <ul class="nav nav-stacked nav-pills">
         <li class="active disabled"><?= $this->Html->link(__('New City'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Cities'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Countries'), ['controller' => 'Countries', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Country'), ['controller' => 'Countries', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List States'), ['controller' => 'States', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New State'), ['controller' => 'States', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Tenants'), ['controller' => 'Tenants', 'action' => 'index']) ?> </li>
@@ -14,6 +16,7 @@
     <fieldset>
         <legend><?= __('Add City') ?></legend>
         <?php
+            echo $this->Form->input('country_id', ['options' => $countries]);
             echo $this->Form->input('state_id', ['options' => $states]);
             echo $this->Form->input('city');
         ?>

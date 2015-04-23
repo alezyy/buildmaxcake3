@@ -40,10 +40,6 @@ class TenantsTable extends Table
             'foreignKey' => 'city_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('MaritalStatuses', [
-            'foreignKey' => 'marital_status_id',
-            'joinType' => 'INNER'
-        ]);
         $this->hasMany('Accounting', [
             'foreignKey' => 'tenant_id'
         ]);
@@ -120,7 +116,6 @@ class TenantsTable extends Table
         $rules->add($rules->existsIn(['country_id'], 'Countries'));
         $rules->add($rules->existsIn(['state_id'], 'States'));
         $rules->add($rules->existsIn(['city_id'], 'Cities'));
-        $rules->add($rules->existsIn(['marital_status_id'], 'MaritalStatuses'));
         return $rules;
     }
 }

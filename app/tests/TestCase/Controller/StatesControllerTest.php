@@ -18,8 +18,19 @@ class StatesControllerTest extends IntegrationTestCase
     public $fixtures = [
         'States' => 'app.states',
         'Countries' => 'app.countries',
+        'Cities' => 'app.cities',
         'Tenants' => 'app.tenants',
-        'Cities' => 'app.cities'
+        'Alternateemails' => 'app.alternateemails',
+        'Accounting' => 'app.accounting',
+        'Payments' => 'app.payments',
+        'Comptable1' => 'app.comptable1',
+        'ApplicationsLeases' => 'app.applications_leases',
+        'Properties' => 'app.properties',
+        'PropertiestypesSpecifications' => 'app.propertiestypes_specifications',
+        'Propertiestypes' => 'app.propertiestypes',
+        'Units' => 'app.units',
+        'Leasestypes' => 'app.leasestypes',
+        'Recurringcharges' => 'app.recurringcharges'
     ];
 
     /**

@@ -18,6 +18,7 @@ class Country extends Entity
         'country' => true,
         'name' => true,
         'paypal' => true,
+        'cities' => true,
         'states' => true,
         'tenants' => true,
     ];

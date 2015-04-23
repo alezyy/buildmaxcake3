@@ -18,6 +18,9 @@ class TenantsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Countries', 'States', 'Cities']
+        ];
         $this->set('tenants', $this->paginate($this->Tenants));
         $this->set('_serialize', ['tenants']);
     }
@@ -32,7 +35,7 @@ class TenantsController extends AppController
     public function view($id = null)
     {
         $tenant = $this->Tenants->get($id, [
-            'contain' => []
+            'contain' => ['Countries', 'States', 'Cities', 'Alternateemails', 'Accounting', 'ApplicationsLeases', 'Comptable1']
         ]);
         $this->set('tenant', $tenant);
         $this->set('_serialize', ['tenant']);
@@ -55,7 +58,10 @@ class TenantsController extends AppController
                 $this->Flash->error('The tenant could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('tenant'));
+        $countries = $this->Tenants->Countries->find('list', ['limit' => 200]);
+        $states = $this->Tenants->States->find('list', ['limit' => 200]);
+        $cities = $this->Tenants->Cities->find('list', ['limit' => 200]);
+        $this->set(compact('tenant', 'countries', 'states', 'cities'));
         $this->set('_serialize', ['tenant']);
     }
 
@@ -80,7 +86,10 @@ class TenantsController extends AppController
                 $this->Flash->error('The tenant could not be saved. Please, try again.');
             }
         }
-        $this->set(compact('tenant'));
+        $countries = $this->Tenants->Countries->find('list', ['limit' => 200]);
+        $states = $this->Tenants->States->find('list', ['limit' => 200]);
+        $cities = $this->Tenants->Cities->find('list', ['limit' => 200]);
+        $this->set(compact('tenant', 'countries', 'states', 'cities'));
         $this->set('_serialize', ['tenant']);
     }
 

@@ -44,6 +44,7 @@
         <table class="table">
             <tr>
                 <th><?= __('Id') ?></th>
+                <th><?= __('Country Id') ?></th>
                 <th><?= __('State Id') ?></th>
                 <th><?= __('City') ?></th>
                 <th class="actions"><?= __('Actions') ?></th>
@@ -51,6 +52,7 @@
             <?php foreach ($state->cities as $cities): ?>
             <tr>
                 <td><?= h($cities->id) ?></td>
+                <td><?= h($cities->country_id) ?></td>
                 <td><?= h($cities->state_id) ?></td>
                 <td><?= h($cities->city) ?></td>
                 <td class="actions">
@@ -87,7 +89,6 @@
                 <th><?= __('City Id') ?></th>
                 <th><?= __('Zip') ?></th>
                 <th><?= __('Birth Date') ?></th>
-                <th><?= __('Marital Status Id') ?></th>
                 <th><?= __('Driver License Number') ?></th>
                 <th><?= __('Driver License State') ?></th>
                 <th><?= __('Total Number Of Occupants') ?></th>
@@ -120,7 +121,6 @@
                 <td><?= h($tenants->city_id) ?></td>
                 <td><?= h($tenants->zip) ?></td>
                 <td><?= h($tenants->birth_date) ?></td>
-                <td><?= h($tenants->marital_status_id) ?></td>
                 <td><?= h($tenants->driver_license_number) ?></td>
                 <td><?= h($tenants->driver_license_state) ?></td>
                 <td><?= h($tenants->total_number_of_occupants) ?></td>

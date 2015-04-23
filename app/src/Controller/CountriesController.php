@@ -32,7 +32,7 @@ class CountriesController extends AppController
     public function view($id = null)
     {
         $country = $this->Countries->get($id, [
-            'contain' => ['States', 'Tenants']
+            'contain' => ['Cities', 'States', 'Tenants']
         ]);
         $this->set('country', $country);
         $this->set('_serialize', ['country']);

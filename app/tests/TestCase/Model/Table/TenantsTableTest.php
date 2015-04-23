@@ -17,7 +17,21 @@ class TenantsTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'Tenants' => 'app.tenants'
+        'Tenants' => 'app.tenants',
+        'Alternateemails' => 'app.alternateemails',
+        'Countries' => 'app.countries',
+        'States' => 'app.states',
+        'Cities' => 'app.cities',
+        'Accounting' => 'app.accounting',
+        'Payments' => 'app.payments',
+        'Comptable1' => 'app.comptable1',
+        'ApplicationsLeases' => 'app.applications_leases',
+        'Properties' => 'app.properties',
+        'PropertiestypesSpecifications' => 'app.propertiestypes_specifications',
+        'Propertiestypes' => 'app.propertiestypes',
+        'Units' => 'app.units',
+        'Leasestypes' => 'app.leasestypes',
+        'Recurringcharges' => 'app.recurringcharges'
     ];
 
     /**

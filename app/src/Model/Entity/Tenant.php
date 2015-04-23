@@ -29,7 +29,6 @@ class Tenant extends Entity
         'city_id' => true,
         'zip' => true,
         'birth_date' => true,
-        'marital_status_id' => true,
         'driver_license_number' => true,
         'driver_license_state' => true,
         'total_number_of_occupants' => true,
@@ -43,5 +42,12 @@ class Tenant extends Entity
         'co_signer_details' => true,
         'notes' => true,
         'photo' => true,
+        'alternateemails' => true,
+        'country' => true,
+        'state' => true,
+        'city' => true,
+        'accounting' => true,
+        'applications_leases' => true,
+        'comptable1' => true,
     ];
 }

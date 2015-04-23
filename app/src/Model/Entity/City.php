@@ -15,8 +15,10 @@ class City extends Entity
      * @var array
      */
     protected $_accessible = [
+        'country_id' => true,
         'state_id' => true,
         'city' => true,
+        'country' => true,
         'state' => true,
         'tenants' => true,
     ];

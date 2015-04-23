@@ -5,6 +5,8 @@
         <li><?= $this->Form->postLink(__('Delete City'), ['action' => 'delete', $city->id], ['confirm' => __('Are you sure you want to delete # {0}?', $city->id), 'class' => 'btn-danger']) ?> </li>
         <li><?= $this->Html->link(__('List Cities'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New City'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Countries'), ['controller' => 'Countries', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Country'), ['controller' => 'Countries', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List States'), ['controller' => 'States', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New State'), ['controller' => 'States', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Tenants'), ['controller' => 'Tenants', 'action' => 'index']) ?> </li>
@@ -17,6 +19,8 @@
         <div class="col-lg-5 columns strings">
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <h6 class="subheader"><?= __('Country') ?></h6>
+                    <p><?= $city->has('country') ? $this->Html->link($city->country->name, ['controller' => 'Countries', 'action' => 'view', $city->country->id]) : '' ?></p>
                     <h6 class="subheader"><?= __('State') ?></h6>
                     <p><?= $city->has('state') ? $this->Html->link($city->state->id, ['controller' => 'States', 'action' => 'view', $city->state->id]) : '' ?></p>
                     <h6 class="subheader"><?= __('City') ?></h6>
@@ -56,7 +60,6 @@
                 <th><?= __('City Id') ?></th>
                 <th><?= __('Zip') ?></th>
                 <th><?= __('Birth Date') ?></th>
-                <th><?= __('Marital Status Id') ?></th>
                 <th><?= __('Driver License Number') ?></th>
                 <th><?= __('Driver License State') ?></th>
                 <th><?= __('Total Number Of Occupants') ?></th>
@@ -89,7 +92,6 @@
                 <td><?= h($tenants->city_id) ?></td>
                 <td><?= h($tenants->zip) ?></td>
                 <td><?= h($tenants->birth_date) ?></td>
-                <td><?= h($tenants->marital_status_id) ?></td>
                 <td><?= h($tenants->driver_license_number) ?></td>
                 <td><?= h($tenants->driver_license_state) ?></td>
                 <td><?= h($tenants->total_number_of_occupants) ?></td>

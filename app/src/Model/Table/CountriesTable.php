@@ -24,6 +24,9 @@ class CountriesTable extends Table
         $this->table('countries');
         $this->displayField('name');
         $this->primaryKey('id');
+        $this->hasMany('Cities', [
+            'foreignKey' => 'country_id'
+        ]);
         $this->hasMany('States', [
             'foreignKey' => 'country_id'
         ]);

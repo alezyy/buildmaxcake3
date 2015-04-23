@@ -24,9 +24,6 @@ class MaritalStatusTable extends Table
         $this->table('marital_status');
         $this->displayField('id');
         $this->primaryKey('id');
-        $this->hasMany('Tenants', [
-            'foreignKey' => 'marital_status_id'
-        ]);
     }
 
     /**

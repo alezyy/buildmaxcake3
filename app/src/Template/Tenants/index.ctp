@@ -3,6 +3,20 @@
     <ul class="nav nav-stacked nav-pills">
         <li><?= $this->Html->link(__('New Tenant'), ['action' => 'add']) ?></li>
         <li class="active disabled"><?= $this->Html->link(__('List Tenants'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Countries'), ['controller' => 'Countries', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Country'), ['controller' => 'Countries', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List States'), ['controller' => 'States', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New State'), ['controller' => 'States', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Cities'), ['controller' => 'Cities', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New City'), ['controller' => 'Cities', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Alternateemails'), ['controller' => 'Alternateemails', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Alternateemail'), ['controller' => 'Alternateemails', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Accounting'), ['controller' => 'Accounting', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Accounting'), ['controller' => 'Accounting', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Applications Leases'), ['controller' => 'ApplicationsLeases', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Applications Lease'), ['controller' => 'ApplicationsLeases', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Comptable1'), ['controller' => 'Comptable1', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Comptable1'), ['controller' => 'Comptable1', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="tenants index col-lg-10 col-md-9 columns">

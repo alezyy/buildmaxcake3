@@ -59,7 +59,7 @@ class CitiesController extends AppController
             }
         }
         $countries = $this->Cities->Countries->find('list', ['limit' => 200]);
-        $states = $this->Cities->States->find('list', ['limit' => 200]);
+        $states = $this->Cities->States->find('list', ['fields' => array('state'), 'limit' => 200]);
         debug($states);
         $this->set(compact('city', 'countries', 'states'));
         $this->set('_serialize', ['city']);
