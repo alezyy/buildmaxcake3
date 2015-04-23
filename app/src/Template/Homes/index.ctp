@@ -114,19 +114,59 @@
 						<li class="dropdown">
 							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
+
 								<li>
-									<a href="#">Action</a>
+									<a href="http://test.dev/users">Users</a>
 								</li>
 								<li>
-									<a href="#">Another action</a>
+									<a href="http://test.dev/groups">Groups</a>
 								</li>
 								<li>
-									<a href="#">Something else here</a>
+									<a href="http://test.dev/tenants">Tenants</a>
+								</li>
+								<li>
+									<a href="http://test.dev/tenants">Applicants</a>
+								</li>
+								<li>
+									<a href="http://test.dev/properties">Properties</a>
+								</li>
+								<li>
+									<a href="http://test.dev/rental_owners">Rental Owners</a>
+								</li>
+								<li>
+									<a href="http://test.dev/units">Units</a>
+								</li>
+								<li>
+									<a href="http://test.dev/states">States</a>
+								</li>
+								<li>
+									<a href="http://test.dev/countries">Countries</a>
+								</li>
+								<li>
+									<a href="http://test.dev/cities">Cities</a>
 								</li>
 								<li class="divider">
 								</li>
 								<li>
-									<a href="#">Separated link</a>
+									<a href="http://test.dev/aboutus">About us</a>
+								</li>
+								<li>
+									<a href="#">Accounting</a>
+								</li>
+								<li>
+									<a href="http://test.dev/applications_leases">Leasing</a>
+								</li>
+								<li>
+									<a href="http://test.dev/leasestypes">Leasing type</a>
+								</li>
+								<li>
+								   <a href="EmploymentAndIncomeHistoryController">Employment History</a>
+								</li>
+								<li>
+								<a href="#"> Properties types specifications</a>
+								</li>
+								<li>
+								<a href="#"> Properties types </a>
 								</li>
 							</ul>
 						</li>
@@ -229,7 +269,7 @@
 			</div>
 			<div class="jumbotron">
 				<h1>
-					BuildMax ?
+					Top .... ?
 				</h1>
 				<p>
 					This is a Property management template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
