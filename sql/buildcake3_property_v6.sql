@@ -40,6 +40,34 @@ LOCK TABLES `accounting` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `acos`
+--
+
+DROP TABLE IF EXISTS `acos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `acos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT '',
+  `foreign_key` int(10) unsigned DEFAULT NULL,
+  `alias` varchar(255) DEFAULT '',
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `acos`
+--
+
+LOCK TABLES `acos` WRITE;
+/*!40000 ALTER TABLE `acos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `acos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `alternateemails`
 --
 
@@ -102,6 +130,86 @@ INSERT INTO `applications_leases` VALUES (1,1,1,1,0,'2014-04-01','2015-04-01',0,
 UNLOCK TABLES;
 
 --
+-- Table structure for table `aros`
+--
+
+DROP TABLE IF EXISTS `aros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `aros` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT '',
+  `foreign_key` int(10) unsigned DEFAULT NULL,
+  `alias` varchar(255) DEFAULT '',
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aros`
+--
+
+LOCK TABLES `aros` WRITE;
+/*!40000 ALTER TABLE `aros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `aros_acos`
+--
+
+DROP TABLE IF EXISTS `aros_acos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `aros_acos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `aro_id` int(10) unsigned NOT NULL,
+  `aco_id` int(10) unsigned NOT NULL,
+  `_create` char(2) NOT NULL DEFAULT '0',
+  `_read` char(2) NOT NULL DEFAULT '0',
+  `_update` char(2) NOT NULL DEFAULT '0',
+  `_delete` char(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aros_acos`
+--
+
+LOCK TABLES `aros_acos` WRITE;
+/*!40000 ALTER TABLE `aros_acos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `aros_acos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cake_sessions`
+--
+
+DROP TABLE IF EXISTS `cake_sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cake_sessions` (
+  `id` varchar(255) NOT NULL DEFAULT '',
+  `data` text,
+  `expires` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cake_sessions`
+--
+
+LOCK TABLES `cake_sessions` WRITE;
+/*!40000 ALTER TABLE `cake_sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cake_sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cities`
 --
 
@@ -109,11 +217,12 @@ DROP TABLE IF EXISTS `cities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cities` (
-  `id` int(200) NOT NULL,
-  `state_id` int(10) NOT NULL,
-  `city` varchar(200) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) NOT NULL,
+  `state_id` int(11) NOT NULL,
+  `city` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +231,7 @@ CREATE TABLE `cities` (
 
 LOCK TABLES `cities` WRITE;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
+INSERT INTO `cities` VALUES (1,93,3,'Delmas');
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +379,7 @@ CREATE TABLE `groups` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -278,7 +388,39 @@ CREATE TABLE `groups` (
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
+INSERT INTO `groups` VALUES (1,'administrator','2015-04-23 03:23:27','2015-04-23 03:23:27'),(2,'tenant','2015-04-23 03:23:38','2015-04-23 03:23:38');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `i18n`
+--
+
+DROP TABLE IF EXISTS `i18n`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `i18n` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `locale` varchar(6) NOT NULL,
+  `model` varchar(255) NOT NULL,
+  `foreign_key` int(10) NOT NULL,
+  `field` varchar(255) NOT NULL,
+  `content` mediumtext,
+  PRIMARY KEY (`id`),
+  KEY `locale` (`locale`),
+  KEY `model` (`model`),
+  KEY `row_id` (`foreign_key`),
+  KEY `field` (`field`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `i18n`
+--
+
+LOCK TABLES `i18n` WRITE;
+/*!40000 ALTER TABLE `i18n` DISABLE KEYS */;
+/*!40000 ALTER TABLE `i18n` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -303,6 +445,37 @@ LOCK TABLES `leasestypes` WRITE;
 /*!40000 ALTER TABLE `leasestypes` DISABLE KEYS */;
 INSERT INTO `leasestypes` VALUES (1,'Fixed'),(2,'Fixed w/rollover'),(3,'At-will');
 /*!40000 ALTER TABLE `leasestypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logs`
+--
+
+DROP TABLE IF EXISTS `logs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uri` varchar(255) NOT NULL,
+  `method` varchar(6) NOT NULL,
+  `params` text NOT NULL,
+  `api_key` varchar(40) NOT NULL,
+  `ip_address` varchar(15) NOT NULL,
+  `time` int(11) NOT NULL,
+  `authorized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `uri` (`uri`),
+  KEY `ip_address` (`ip_address`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logs`
+--
+
+LOCK TABLES `logs` WRITE;
+/*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `logs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -503,6 +676,69 @@ LOCK TABLES `payments` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `post_file` varchar(255) DEFAULT NULL,
+  `publish_date` date DEFAULT NULL,
+  `is_published` tinyint(1) DEFAULT '0',
+  `parent_id` char(36) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (1,'LA FEMME DANS LA FOULE','femme','','2015-04-23',0,NULL,NULL,'2015-04-23 20:11:35','2015-04-23 20:14:42','La plus belle femme de la planete');
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `profiles`
+--
+
+DROP TABLE IF EXISTS `profiles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `profiles` (
+  `id` varchar(36) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `language` varchar(3) NOT NULL DEFAULT 'en',
+  `image` varchar(36) DEFAULT NULL,
+  `timezone` varchar(32) DEFAULT 'America/Montreal',
+  `date_of_birth` date DEFAULT NULL,
+  `gender` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `profiles`
+--
+
+LOCK TABLES `profiles` WRITE;
+/*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `properties`
 --
 
@@ -561,7 +797,7 @@ CREATE TABLE `propertiestypes` (
 
 LOCK TABLES `propertiestypes` WRITE;
 /*!40000 ALTER TABLE `propertiestypes` DISABLE KEYS */;
-INSERT INTO `propertiestypes` VALUES ('1','Industrial'),('2','Commercial'),('3','Residential');
+INSERT INTO `propertiestypes` VALUES ('','Aerospace'),('1','Industrial'),('2','Commercial'),('3','Residential');
 /*!40000 ALTER TABLE `propertiestypes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,7 +822,7 @@ CREATE TABLE `propertiestypes_specifications` (
 
 LOCK TABLES `propertiestypes_specifications` WRITE;
 /*!40000 ALTER TABLE `propertiestypes_specifications` DISABLE KEYS */;
-INSERT INTO `propertiestypes_specifications` VALUES (1,3,'apartment'),(2,2,'Entrepot'),(3,1,'laboratoire');
+INSERT INTO `propertiestypes_specifications` VALUES (1,3,'apartment'),(2,2,'Entrepot'),(3,1,'laboratoire'),(4,3,'bongalot');
 /*!40000 ALTER TABLE `propertiestypes_specifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -718,11 +954,11 @@ DROP TABLE IF EXISTS `states`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `states` (
-  `id` int(200) NOT NULL,
+  `id` int(200) NOT NULL AUTO_INCREMENT,
   `country_id` int(11) NOT NULL,
   `state` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -731,7 +967,7 @@ CREATE TABLE `states` (
 
 LOCK TABLES `states` WRITE;
 /*!40000 ALTER TABLE `states` DISABLE KEYS */;
-INSERT INTO `states` VALUES (1,38,'Quebec'),(2,38,'Toronto');
+INSERT INTO `states` VALUES (1,38,'Quebec'),(2,38,'Toronto'),(3,93,'Port-au-Prince'),(4,93,'Cap-Haitien'),(5,30,'Brazilia'),(6,108,'kingston');
 /*!40000 ALTER TABLE `states` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -752,13 +988,12 @@ CREATE TABLE `tenants` (
   `home_phone` varchar(200) NOT NULL,
   `work_phone` varchar(200) DEFAULT NULL,
   `fax` varchar(200) DEFAULT NULL,
-  `country_id` int(200) NOT NULL,
-  `state_id` int(200) NOT NULL,
+  `country_id` int(11) NOT NULL,
+  `state_id` int(11) NOT NULL,
   `street` text NOT NULL,
-  `city_id` int(10) NOT NULL,
+  `city_id` int(11) NOT NULL,
   `zip` int(11) NOT NULL,
   `birth_date` date DEFAULT NULL,
-  `marital_status_id` int(11) NOT NULL,
   `driver_license_number` varchar(15) DEFAULT NULL,
   `driver_license_state` varchar(15) DEFAULT NULL,
   `total_number_of_occupants` varchar(15) DEFAULT NULL,
@@ -774,7 +1009,7 @@ CREATE TABLE `tenants` (
   `photo` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `property_or_address_applying_for` (`unit_or_address_applying_for`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -783,7 +1018,7 @@ CREATE TABLE `tenants` (
 
 LOCK TABLES `tenants` WRITE;
 /*!40000 ALTER TABLE `tenants` DISABLE KEYS */;
-INSERT INTO `tenants` VALUES (1,'Nancy','Walker','nancywalker@she.com','','9876543210','','0','0',0,0,'',0,0,'1973-03-01',0,'34267789','CA','5','1',NULL,'Applicant','Name: Carola Paul\r\ne-mail: carolapaul@she.com\r\nPhone:1348973884\r\nAddress: POB 65502\r\nTUCSON AZ 85728','','','','Name: John Steve \r\ne-mail: johnsteve@he.com\r\nPhone:48245543\r\nAddress: 300 BOYLSTON AVE E\r\nSEATTLE WA','<br>','87076300_1394033914.jpg'),(2,'Olivia','Medison','oliviamedison@she.com','','8998435325','','0','0',0,0,'',0,0,'1980-01-23',0,'76895432','GU','3','2',NULL,'Applicant','Name: Nim Jackson\r\nemail: nimjackson@she.com','','','','Name: Nim Jackson\r\nemail: nimjackson@she.com','<br>',NULL),(3,'Elisabeth','Ban','elisabethban@live.com','','2098435890','','0','0',0,0,'',0,0,'1985-07-20',0,'76589965','GU','6','2',NULL,'Tenant',NULL,'','','',NULL,'<br>',NULL);
+INSERT INTO `tenants` VALUES (1,'Nancy','Walker','nancywalker@she.com','','9876543210','','0','0',0,0,'',0,0,'1973-03-01','34267789','CA','5','1',NULL,'Applicant','Name: Carola Paul\r\ne-mail: carolapaul@she.com\r\nPhone:1348973884\r\nAddress: POB 65502\r\nTUCSON AZ 85728','','','','Name: John Steve \r\ne-mail: johnsteve@he.com\r\nPhone:48245543\r\nAddress: 300 BOYLSTON AVE E\r\nSEATTLE WA','<br>','87076300_1394033914.jpg'),(2,'Olivia','Medison','oliviamedison@she.com','','8998435325','','0','0',0,0,'',0,0,'1980-01-23','76895432','GU','3','2',NULL,'Applicant','Name: Nim Jackson\r\nemail: nimjackson@she.com','','','','Name: Nim Jackson\r\nemail: nimjackson@she.com','<br>',NULL),(3,'Elisabeth','Ban','elisabethban@live.com','','2098435890','','0','0',0,0,'',0,0,'1985-07-20','76589965','GU','6','2',NULL,'Tenant',NULL,'','','',NULL,'<br>',NULL),(4,'Mona','Karim','karim@yahoo.com','','4387658987','5147894562','5145453689','4387894523',38,1,'225 plateau mont-royal',1,-1,'2015-04-23','12365456','Quebec','3','45','','application','Marie Andre Joseph','marieaj@gmail.com','5141237856','Wife','N/A','Application pour un nouveau',''),(5,'Jean','Joseph','jeanj@gmail.com','','5144569878','5147894546','4502589876','5124567823',1,1,'1234 outremont',1,-2,'2015-04-23','','','','','','application','Darlene','dada@yahoo.ca','4504567823','Wife','','','');
 /*!40000 ALTER TABLE `tenants` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -834,14 +1069,24 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `salt` varchar(22) DEFAULT NULL,
   `group_id` int(11) NOT NULL,
   `role` varchar(20) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `is_active` tinyint(1) DEFAULT '0',
+  `last_login` datetime DEFAULT NULL,
+  `last_ip` varchar(15) DEFAULT NULL,
+  `old_salt` varchar(22) DEFAULT NULL,
+  `old_hash` varchar(60) DEFAULT NULL,
+  `force_reset` tinyint(1) DEFAULT '0',
+  `fraudulent` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -850,6 +1095,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,NULL,'vba','vba',NULL,1,'admin','2015-04-23 03:31:48','2015-04-23 03:31:48',0,NULL,NULL,NULL,NULL,0,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -862,4 +1108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-22 23:16:33
+-- Dump completed on 2015-04-23 20:49:22
