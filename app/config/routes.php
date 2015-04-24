@@ -41,6 +41,11 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('Route');
 
+Router::prefix('admin', function ($routes) {
+    $routes->fallbacks();
+});
+
+
 Router::scope('/', function ($routes) {
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -57,16 +62,27 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
-    $routes->connect('/login',  ['controller' => 'users', 'action' => 'login']);
-    $routes->connect('/logout',  ['controller' => 'users', 'action' => 'logout']);
-    $routes->connect('/posts',  ['controller' => 'Posts', 'action' => 'index']);
+  //  $routes->connect('/login',  ['controller' => 'users', 'action' => 'login']);
+
+
+
+  /*  Router::connect(
+    '/en/login/:success', array('controller' => 'users', 'action' => 'login', 'language' => 'en'), array(
+    'pass' => array('success')));
+ */
+
+
+ //   $routes->connect('/login',  ['controller' => 'users', 'action' => 'login']);
+ //   $routes->connect('/logout',  ['controller' => 'users', 'action' => 'logout']);
+  
+  /*  $routes->connect('/posts',  ['controller' => 'Posts', 'action' => 'index']);
     $routes->connect('/posts/index/*',  ['controller' => 'Posts', 'action' => 'index']);
     $routes->connect('/Posts/add',  ['controller' => 'Posts', 'action' => 'add']);
     $routes->connect('/posts/edit/*',  ['controller' => 'Posts', 'action' => 'edit']);
     $routes->connect('/posts/delete/*',  ['controller' => 'Posts', 'action' => 'delete']);
     $routes->connect('/posts/*',  ['controller' => 'Posts', 'action' => 'index']);
     	
-
+*/
 
       /*
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));

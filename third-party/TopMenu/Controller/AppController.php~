@@ -173,7 +173,7 @@ class AppController extends Controller {
 		} else {
 			$this->layout = 'default';
 
-		    }
+
 			/**
 			 * Check in cookies if user as specified is site version preference
 			 */
@@ -277,7 +277,7 @@ class AppController extends Controller {
 			}
 		} else {
 			$admin_routing = false;
-		   }
+		}
 
 
 		/**
@@ -317,8 +317,7 @@ class AppController extends Controller {
 //        $this->theme = $this->_getTheme();
         
         $this->Auth->allow('read_session');
-	
-
+	}
 
 	public function beforeRender() {
 		parent::beforeRender();
@@ -348,15 +347,15 @@ class AppController extends Controller {
 
 	}
 
-		/**
-	 	* Checks if a user is logged in, if not it redirects them  to the  base url
-	 	* @return void
-	 	*/
-		public function authed_ajax() {
-			if ($this->request->is('ajax')) {
-				$this->AjaxRedirect->redirectIfUnAuthed($this);
-			}
+	/**
+ * Checks if a user is logged in, if not it redirects them  to the  base url
+ * @return void
+ */
+	public function authed_ajax() {
+		if ($this->request->is('ajax')) {
+			$this->AjaxRedirect->redirectIfUnAuthed($this);
 		}
+	}
 
 /**
  * Add language stuff to redirects

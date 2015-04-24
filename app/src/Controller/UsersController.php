@@ -2,6 +2,14 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Network\Email\Email;
+use App\Controller\Component\Auth\BcryptFormAuthenticate ;
+use Cake\Controller\Controller ;
+use Cake\Event\Event ;
+
+//App::uses('BcryptFormAuthenticate', 'Controller/Component/Auth');
+
+
 
 /**
  * Users Controller
@@ -10,19 +18,94 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
-
+   // public $langSuffix = 'en' ;
 
 	/**
- 	* beforeFilter method
- 	*
-	 * @return void
- 	*/
-/*
-	public function beforeFilter() {
-		parent::beforeFilter();
-		$this->Auth->allow('login', 'logout');
-	}
-*/
+	 * uses
+	 *
+	 * (default value: array('User','Country', 'ForgottenPassword'))
+	 *
+	 * @var string
+	 * @access public
+	 */
+    public $uses = array('User', 'Country', 'Order', 'Profile', 'Province');
+ 
+   
+
+    /**
+	 * helpers
+	 *
+	 * @var mixed
+	 * @access public
+	 */
+	public $helpers = array(
+		'Calendar' => array(
+			'date_format' => '%Y-%m-%d %H:%i:%s',
+			'hide_time'   => false
+		)
+            
+	);
+
+	
+	/**
+	 * components
+	 *
+	 * @var mixed
+	 * @access public
+	 */
+	public $components = array(
+        'RequestHandler',
+        'Paginator',
+        'Image',
+        'UserAccount'
+	   // 'Ip'
+	);
+
+    /**
+     * beforeFilter function.
+     *
+     * @access public
+     * @return void
+     */
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+     
+               
+       $this->Auth->allow(
+            'login',
+            'logout',
+            'register',
+            'thanks',
+            'activate',
+            'forgot_confirm',
+            'forgot_password',
+            'change_forgotten_password'
+        );
+        $redirect = array(
+//          'login',
+            'register',
+            'thanks',
+            'activate',
+            'forgot_confirm',
+            'forgot_password'
+        );
+        foreach ($redirect as $action) {
+            if ($action == $this->request->action) {
+                if ($this->Auth->user('id')) {
+                    $this->redirect('/');
+                }
+            }
+        }
+        
+        switch ($this->request->action) {
+            case 'autoCompleteUserBox':
+                $this->Security->csrfCheck    = FALSE;
+                $this->Security->validatePost = FALSE;
+                break;
+        } 
+        
+       } 
+
 
     /**
      * Index method
@@ -121,22 +204,25 @@ class UsersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+ 
+    public function login($success = NULL)
+    {
 
-  	/**
-	 * login method
- 	 *
-	 * @return void
-	 */
-	public function login() {
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Auth->login()) {
-				$user = $this->User->read(null, $this->Auth->user('id'));
-				$this->redirect(array('controller' => 'posts', 'action' => 'index'));
-			}
-		}
-	}
+        $this->set('title_for_layout', __(' Login'));
+        $this->set('successPage', $success);
 
+       /* if ($this->request->is('post')) { 
 
+        }
+        */
+    }
+
+    public function register($langSuffix = 'en')
+     {
+  
+       $this->set('langSuffix', $langSuffix) ;
+
+      }
 
 
 }

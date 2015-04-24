@@ -1,0 +1,139 @@
+use Cake\Controller\ComponentRegistry;
+use Cake\Controller\Component\CookieComponent;
+use Cake\Controller\Controller;
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\Network\Request;
+use Cake\Network\Response;
+use Cake\TestSuite\TestCase;
+use Cake\Utility\Security;
+use Cake\View\Helper;
+use Cake\View\StringTemplateTrait;
+use Cake\Database\Driver;
+use Cake\Database\Type;
+use Cake\Network\Http\Response;
+
+use Cake\Auth\FormAuthenticate;
+use Cake\Cache\Cache;
+use Cake\Core\App;
+use Cake\Core\Configure;
+use Cake\Core\Plugin;
+use Cake\Network\Request;
+use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
+
+use Cake\Collection\Collection;
+use Cake\Network\Exception\SocketException;
+use Cake\Network\Socket;
+ 
+use Cake\Console\ConsoleIo;
+use Cake\Console\Exception\MissingShellException;
+use Cake\Core\Exception\Exception;
+use Cake\Log\Log;
+use Cake\Shell\Task\CommandTask;
+use Cake\Utility\Inflector;
+
+use Cake\Database\Statement\StatementDecorator;
+use Cake\Auth\DigestAuthenticate;
+ 
+use Cake\Network\Exception\UnauthorizedException;
+use Cake\Network\Request;
+use Cake\Network\Response;
+use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
+use Cake\TestSuite\TestCase;
+
+
+use Cake\ORM\Behavior\TimestampBehavior;
+use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
+use Cake\Network\Http\Request;
+
+use InvalidArgumentException;
+use SessionHandlerInterface;
+
+use Cake\View\Form\ContextInterface;
+use Cake\View\StringTemplate;
+use Cake\View\Widget\SelectBoxWidget;
+use Cake\View\Widget\WidgetInterface;
+use RuntimeException;
+
+use Cake\I18n\I18n;
+use Aura\Intl\Package;
+
+
+use Cake\View\Helper\TimeHelper;
+use Aura\Intl\FormatterLocator;
+use Aura\Intl\PackageLocator;
+use Aura\Intl\TranslatorFactory;
+use Cake\I18n\Formatter\IcuFormatter;
+use Cake\I18n\Formatter\SprintfFormatter;
+use Locale;
+
+use Carbon\Carbon;
+use IntlDateFormatter;
+use JsonSerializable;
+ 
+use LogicException;
+use ReflectionException;
+use ReflectionMethod;
+
+use Cake\Routing\RequestActionTrait;
+use Cake\Routing\Router;
+use Cake\Utility\MergeVariablesTrait;
+use Cake\View\ViewVarsTrait;
+
+use Cake\Event\EventListenerInterface;
+use Cake\Event\EventManagerTrait;
+use Cake\Log\LogTrait;
+
+use Cake\Cache\CacheEngine;
+Cake\Collection\Iterator\MapReduce;
+use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Datasource\QueryCacher;
+use Cake\Datasource\RepositoryInterface;
+
+
+use Cake\Controller\Component;
+use Cake\Utility\Hash;
+use Cake\Utility\Security;
+ 
+namespace Cake\Collection;
+use Iterator;
+use JsonSerializable;
+
+use Cake\View\Form\ArrayContext;
+use Cake\View\Form\ContextInterface;
+use Cake\View\Form\EntityContext;
+use Cake\View\Form\FormContext;
+use Cake\View\Form\NullContext;
+
+use Cake\View\Widget\WidgetRegistry;
+use DateTime;
+use Traversable;
+
+use Cake\View\StringTemplate;
+use Cake\View\Widget\DateTimeWidget;
+use Cake\View\Widget\SelectBoxWidget;
+
+
+==============================
+namespace Cake\Network\Email;
+namespace Cake\Network\Http;
+namespace Cake\Test\TestCase\Auth;
+namespace Cake\Collection\Iterator;
+namespace Cake\Console;
+namespace Cake\Database\Log;
+namespace Cake\Test\TestCase\ORM\Behavior;
+namespace Cake\Network\Http\Auth;
+namespace Cake\Network\Session;
+namespace Cake\View\Widget;
+namespace Cake\I18n;
+namespace Cake\ORM\Behavior;
+namespace Cake\Cache\Engine;
+namespace Cake\Datasource;
+namespace Cake\Controller\Component;
+namespace Cake\Collection;
+
+
+

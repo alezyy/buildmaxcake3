@@ -1,0 +1,14 @@
+<?php
+namespace App\Controller\Component;
+
+use Cake\Controller\Component;
+
+use App\Controller\User;
+
+class UserAccountComponent extends Component
+{
+
+  public $components = array();
+  
+
+}

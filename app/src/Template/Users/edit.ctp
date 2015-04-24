@@ -19,10 +19,19 @@
     <fieldset>
         <legend><?= __('Edit User') ?></legend>
         <?php
+            echo $this->Form->input('email');
             echo $this->Form->input('username');
             echo $this->Form->input('password');
+            echo $this->Form->input('salt');
             echo $this->Form->input('group_id', ['options' => $groups]);
             echo $this->Form->input('role');
+            echo $this->Form->input('is_active');
+            echo $this->Form->input('last_login');
+            echo $this->Form->input('last_ip');
+            echo $this->Form->input('old_salt');
+            echo $this->Form->input('old_hash');
+            echo $this->Form->input('force_reset');
+            echo $this->Form->input('fraudulent');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit'), ['class' => 'btn-success']) ?>

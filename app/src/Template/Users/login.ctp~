@@ -50,9 +50,7 @@
 		            array(
 						'controller' => 'users',
 						'action' => 'register',
-						'success' => $successPage
-						),
-
+						'success' => $successPage),
 					array(
 						'escape' => false,
 						'class' => ''

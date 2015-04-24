@@ -15,14 +15,24 @@
         <div class="col-lg-5 columns strings">
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <h6 class="subheader"><?= __('Email') ?></h6>
+                    <p><?= h($user->email) ?></p>
                     <h6 class="subheader"><?= __('Username') ?></h6>
                     <p><?= h($user->username) ?></p>
                     <h6 class="subheader"><?= __('Password') ?></h6>
                     <p><?= h($user->password) ?></p>
+                    <h6 class="subheader"><?= __('Salt') ?></h6>
+                    <p><?= h($user->salt) ?></p>
                     <h6 class="subheader"><?= __('Group') ?></h6>
                     <p><?= $user->has('group') ? $this->Html->link($user->group->name, ['controller' => 'Groups', 'action' => 'view', $user->group->id]) : '' ?></p>
                     <h6 class="subheader"><?= __('Role') ?></h6>
                     <p><?= h($user->role) ?></p>
+                    <h6 class="subheader"><?= __('Last Ip') ?></h6>
+                    <p><?= h($user->last_ip) ?></p>
+                    <h6 class="subheader"><?= __('Old Salt') ?></h6>
+                    <p><?= h($user->old_salt) ?></p>
+                    <h6 class="subheader"><?= __('Old Hash') ?></h6>
+                    <p><?= h($user->old_hash) ?></p>
                 </div>
             </div>
         </div>
@@ -41,6 +51,20 @@
                     <p><?= h($user->created) ?></p>
                     <h6 class="subheader"><?= __('Modified') ?></h6>
                     <p><?= h($user->modified) ?></p>
+                    <h6 class="subheader"><?= __('Last Login') ?></h6>
+                    <p><?= h($user->last_login) ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 columns booleans end">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h6 class="subheader"><?= __('Is Active') ?></h6>
+                    <p><?= $user->is_active ? __('Yes') : __('No'); ?></p>
+                    <h6 class="subheader"><?= __('Force Reset') ?></h6>
+                    <p><?= $user->force_reset ? __('Yes') : __('No'); ?></p>
+                    <h6 class="subheader"><?= __('Fraudulent') ?></h6>
+                    <p><?= $user->fraudulent ? __('Yes') : __('No'); ?></p>
                 </div>
             </div>
         </div>
