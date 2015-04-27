@@ -2,7 +2,14 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-//  use Cake\Datasource\EntityInterface ;
+use Cake\Network\Email\Email;
+use App\Controller\Component\Auth\BcryptFormAuthenticate ;
+use Cake\Controller\Controller ;
+use Cake\Event\Event ;
+
+//App::uses('BcryptFormAuthenticate', 'Controller/Component/Auth');
+
+
 
 /**
  * Users Controller
@@ -11,6 +18,94 @@ use App\Controller\AppController;
  */
 class UsersController extends AppController
 {
+   // public $langSuffix = 'en' ;
+
+	/**
+	 * uses
+	 *
+	 * (default value: array('User','Country', 'ForgottenPassword'))
+	 *
+	 * @var string
+	 * @access public
+	 */
+    public $uses = array('User', 'Country', 'Order', 'Profile', 'Province');
+ 
+   
+
+    /**
+	 * helpers
+	 *
+	 * @var mixed
+	 * @access public
+	 */
+	public $helpers = array(
+		'Calendar' => array(
+			'date_format' => '%Y-%m-%d %H:%i:%s',
+			'hide_time'   => false
+		)
+            
+	);
+
+	
+	/**
+	 * components
+	 *
+	 * @var mixed
+	 * @access public
+	 */
+	public $components = array(
+        'RequestHandler',
+        'Paginator',
+        'Image',
+        'UserAccount'
+	   // 'Ip'
+	);
+
+    /**
+     * beforeFilter function.
+     *
+     * @access public
+     * @return void
+     */
+    public function beforeFilter(Event $event) {
+        parent::beforeFilter($event);
+     
+               
+       $this->Auth->allow(
+            'login',
+            'logout',
+            'register',
+            'thanks',
+            'activate',
+            'forgot_confirm',
+            'forgot_password',
+            'change_forgotten_password'
+        );
+        $redirect = array(
+//          'login',
+            'register',
+            'thanks',
+            'activate',
+            'forgot_confirm',
+            'forgot_password'
+        );
+        foreach ($redirect as $action) {
+            if ($action == $this->request->action) {
+                if ($this->Auth->user('id')) {
+                    $this->redirect('/');
+                }
+            }
+        }
+        
+        switch ($this->request->action) {
+            case 'autoCompleteUserBox':
+                $this->Security->csrfCheck    = FALSE;
+                $this->Security->validatePost = FALSE;
+                break;
+        } 
+        
+       } 
+
 
     /**
      * Index method
@@ -36,7 +131,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => ['Groups', 'Posts']
+            'contain' => ['Groups']
         ]);
         $this->set('user', $user);
         $this->set('_serialize', ['user']);
@@ -109,28 +204,25 @@ class UsersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    
- //  public function register($success = 'register', $langSuffix= 'en') {
-
-      //  $this->loadModel('User');
-      //  $this->set('title_for_layout', __('Register for an account'));
-      //  $this->set('langSuffix', $langSuffix);
-
-
-    public function register() {
-
-          } 
  
-    /**
-     * Checks if registration is enabled, and if not redirects to root
-     * and gives an error message
-     * @return void
-     */
+    public function login($success = NULL)
+    {
 
-    private function __checkRegistration() {
-      //  if (!Configure::read('User.registration_enabled')) {
-        //    $this->Session->setFlash(__('User registration is currently disabled. Please try again at a later time.'));
-         //   $this->redirect('/');
-        //}
+        $this->set('title_for_layout', __(' Login'));
+        $this->set('successPage', $success);
+
+       /* if ($this->request->is('post')) { 
+
         }
+        */
+    }
+
+    public function register($langSuffix = 'en')
+     {
+  
+       $this->set('langSuffix', $langSuffix) ;
+
+      }
+
+
 }

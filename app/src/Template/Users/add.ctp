@@ -5,6 +5,8 @@
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Groups'), ['controller' => 'Groups', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Group'), ['controller' => 'Groups', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Posts'), ['controller' => 'Posts', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Post'), ['controller' => 'Posts', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="users form col-lg-10 col-md-9 columns">

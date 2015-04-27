@@ -7,8 +7,6 @@
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Groups'), ['controller' => 'Groups', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Group'), ['controller' => 'Groups', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Posts'), ['controller' => 'Posts', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Post'), ['controller' => 'Posts', 'action' => 'add']) ?> </li>
     </ul>
 </div>
 <div class="users view col-lg-10 col-md-9 columns">
@@ -70,50 +68,5 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="related row">
-    <div class="column col-lg-12">
-    <h4 class="subheader"><?= __('Related Posts') ?></h4>
-    <?php if (!empty($user->posts)): ?>
-    <div class="table-responsive">
-        <table class="table">
-            <tr>
-                <th><?= __('Id') ?></th>
-                <th><?= __('Title') ?></th>
-                <th><?= __('Slug') ?></th>
-                <th><?= __('Post File') ?></th>
-                <th><?= __('Publish Date') ?></th>
-                <th><?= __('Is Published') ?></th>
-                <th><?= __('Parent Id') ?></th>
-                <th><?= __('User Id') ?></th>
-                <th><?= __('Created') ?></th>
-                <th><?= __('Modified') ?></th>
-                <th><?= __('Content') ?></th>
-                <th class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($user->posts as $posts): ?>
-            <tr>
-                <td><?= h($posts->id) ?></td>
-                <td><?= h($posts->title) ?></td>
-                <td><?= h($posts->slug) ?></td>
-                <td><?= h($posts->post_file) ?></td>
-                <td><?= h($posts->publish_date) ?></td>
-                <td><?= h($posts->is_published) ?></td>
-                <td><?= h($posts->parent_id) ?></td>
-                <td><?= h($posts->user_id) ?></td>
-                <td><?= h($posts->created) ?></td>
-                <td><?= h($posts->modified) ?></td>
-                <td><?= h($posts->content) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link('<span class="glyphicon glyphicon-zoom-in"></span><span class="sr-only">' . __('View') . '</span>', ['controller' => 'Posts', 'action' => 'view', $posts->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('View')]) ?>
-                    <?= $this->Html->link('<span class="glyphicon glyphicon-pencil"></span><span class="sr-only">' . __('Edit') . '</span>', ['controller' => 'Posts', 'action' => 'edit', $posts->id], ['escape' => false, 'class' => 'btn btn-xs btn-default', 'title' => __('Edit')]) ?>
-                    <?= $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span><span class="sr-only">' . __('Delete') . '</span>', ['controller' => 'Posts', 'action' => 'delete', $posts->id], ['confirm' => __('Are you sure you want to delete # {0}?', $posts->id), 'escape' => false, 'class' => 'btn btn-xs btn-danger', 'title' => __('Delete')]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-    </div>
-    <?php endif; ?>
     </div>
 </div>

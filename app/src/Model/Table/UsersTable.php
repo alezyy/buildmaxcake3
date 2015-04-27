@@ -47,22 +47,22 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create')
             ->add('email', 'valid', ['rule' => 'email'])
             ->allowEmpty('email')
-            ->allowEmpty('username')
-            ->allowEmpty('password')
-            ->allowEmpty('salt')
-            ->allowEmpty('role')
-            ->add('is_active', 'valid', ['rule' => 'boolean'])
-            ->allowEmpty('is_active')
-            ->add('last_login', 'valid', ['rule' => 'datetime'])
-            ->allowEmpty('last_login')
-            ->allowEmpty('last_ip')
-            ->allowEmpty('old_salt')
-            ->allowEmpty('old_hash')
-            ->add('force_reset', 'valid', ['rule' => 'boolean'])
-            ->allowEmpty('force_reset')
-            ->add('fraudulent', 'valid', ['rule' => 'boolean'])
-            ->requirePresence('fraudulent', 'create')
-            ->notEmpty('fraudulent');
+         //   ->allowEmpty('username')
+            ->allowEmpty('password') ;
+        //    ->allowEmpty('salt')
+        //    ->allowEmpty('role')
+        //    ->add('is_active', 'valid', ['rule' => 'boolean'])
+        //    ->allowEmpty('is_active')
+        //    ->add('last_login', 'valid', ['rule' => 'datetime'])
+        //    ->allowEmpty('last_login')
+        //    ->allowEmpty('last_ip')
+        //    ->allowEmpty('old_salt')
+        //    ->allowEmpty('old_hash')
+       //     ->add('force_reset', 'valid', ['rule' => 'boolean'])
+       //     ->allowEmpty('force_reset')
+       //     ->add('fraudulent', 'valid', ['rule' => 'boolean'])
+       //     ->requirePresence('fraudulent', 'create')
+       //     ->notEmpty('fraudulent');
 
         return $validator;
     }
@@ -77,7 +77,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->isUnique(['username']));
+      // $rules->add($rules->isUnique(['username']));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
         return $rules;
     }

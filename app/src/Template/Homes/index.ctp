@@ -10,7 +10,7 @@
 			  
 			<blockquote>
 				<p>
-					Property Management Software Online
+					ToP ....
 				</p> <small>Someone famous <cite>Source Title</cite></small>
 			</blockquote>
 			<div class="carousel slide" id="carousel-518631">
@@ -60,7 +60,7 @@
 			</div>
 			<div class="jumbotron">
 				<h1>
-					Top .... ?
+					ToP ..... ?
 				</h1>
 				<p>
 					This is a Property management template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
